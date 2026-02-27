@@ -1,10 +1,11 @@
 import { createContext, useCallback, useContext } from "react";
 
-export type Section = "hero" | "about" | "skills" | "projects" | "contact";
+export type Section = "hero" | "about" | "skills" | "experience" | "projects" | "contact";
 
 type ScrollContextType = {
   scrollTo: (section: Section) => void;
   register: (section: Section) => (node: HTMLDivElement | null) => void;
+  getElement: (section: Section) => HTMLDivElement | null;
 };
 
 const elements = new Map<Section, HTMLDivElement>();
@@ -27,8 +28,13 @@ export const ScrollProvider = ({ children }: { children: React.ReactNode }) => {
     [],
   );
 
+  const getElement = useCallback(
+    (section: Section) => elements.get(section) ?? null,
+    [],
+  );
+
   return (
-    <ScrollContext.Provider value={{ scrollTo, register }}>
+    <ScrollContext.Provider value={{ scrollTo, register, getElement }}>
       {children}
     </ScrollContext.Provider>
   );

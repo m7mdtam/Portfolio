@@ -1,9 +1,15 @@
 import { useScroll } from "@/contexts/scroll-context";
+import About from "@/components/about/About";
+import { aboutData } from "@/data/aboutData";
 
-const About = () => {
+const AboutSection = () => {
   const { register } = useScroll();
 
-  return <div ref={register("about")} className="min-h-screen w-full" />;
+  return (
+    <div ref={register("about")}>
+      <About data={aboutData} />
+    </div>
+  );
 };
 
-export default About;
+export default AboutSection;
