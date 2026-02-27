@@ -1,0 +1,35 @@
+:root {
+  /* Background */
+  --background-base: oklch(98.5% 0.005 250);
+  --background-surface: oklch(96% 0.008 250);
+  --background-muted: oklch(94% 0.01 250);
+
+  /* Text */
+  --text-primary: oklch(18% 0.02 260);
+  --text-secondary: oklch(45% 0.015 255);
+  --text-muted: oklch(65% 0.01 250);
+  --text-border: oklch(88% 0.01 250);
+
+  /* Accent */
+  --accent-primary: oklch(55% 0.2 260);
+  --accent-hover: oklch(48% 0.22 260);
+  --accent-muted: oklch(92% 0.04 260);
+}
+
+.dark {
+  /* Background */
+  --background-base: oklch(14% 0.015 260);
+  --background-surface: oklch(18% 0.02 260);
+  --background-muted: oklch(22% 0.02 260);
+
+  /* Text */
+  --text-primary: oklch(93% 0.005 250);
+  --text-secondary: oklch(70% 0.01 255);
+  --text-muted: oklch(50% 0.01 255);
+  --text-border: oklch(28% 0.015 260);
+
+  /* Accent */
+  --accent-primary: oklch(68% 0.17 260);
+  --accent-hover: oklch(75% 0.15 260);
+  --accent-muted: oklch(25% 0.06 260);
+}
