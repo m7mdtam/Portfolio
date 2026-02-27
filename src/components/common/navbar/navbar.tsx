@@ -1,4 +1,4 @@
-import CardNav, { type CardNavItem } from "@/components/CardNav";
+import GooeyNav from "@/components/GooeyNav";
 import { useScroll, type Section } from "@/contexts/scroll-context";
 
 const Navbar = () => {
@@ -6,44 +6,37 @@ const Navbar = () => {
 
   const go = (section: Section) => () => scrollTo(section);
 
-  const navItems: CardNavItem[] = [
-    {
-      label: "Explore",
-      bgColor: "#1a1d2e",
-      textColor: "#e0e6f0",
-      links: [
-        { label: "About", ariaLabel: "Go to About section", onClick: go("about") },
-        { label: "Skills", ariaLabel: "Go to Skills section", onClick: go("skills") },
-      ],
-    },
-    {
-      label: "Work",
-      bgColor: "#2d3555",
-      textColor: "#e0e6f0",
-      links: [
-        { label: "Projects", ariaLabel: "Go to Projects section", onClick: go("projects") },
-      ],
-    },
-    {
-      label: "Connect",
-      bgColor: "#5b8def",
-      textColor: "#0d1117",
-      links: [
-        { label: "Contact", ariaLabel: "Go to Contact section", onClick: go("contact") },
-      ],
-    },
+  const items = [
+    { label: "About", href: "#about", onClick: go("about") },
+    { label: "Skills", href: "#skills", onClick: go("skills") },
+    { label: "Projects", href: "#projects", onClick: go("projects") },
+    { label: "Contact", href: "#contact", onClick: go("contact") },
   ];
 
   return (
-    <CardNav
-      logo=""
-      logoAlt="MT"
-      items={navItems}
-      baseColor="#0d1117"
-      menuColor="#e0e6f0"
-      buttonBgColor="#5b8def"
-      buttonTextColor="#0d1117"
-    />
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+      <div
+        className="rounded-full px-4 py-2"
+        style={{
+          background: "var(--background-surface)",
+          border: "1px solid var(--text-border)",
+          "--color-1": "var(--accent-primary)",
+          "--color-2": "var(--accent-hover)",
+          "--color-3": "var(--background-muted)",
+          "--color-4": "var(--text-secondary)",
+        } as React.CSSProperties}
+      >
+        <GooeyNav
+          items={items}
+          particleCount={15}
+          particleDistances={[90, 10]}
+          particleR={100}
+          animationTime={600}
+          timeVariance={300}
+          colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+        />
+      </div>
+    </header>
   );
 };
 
