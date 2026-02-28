@@ -5,7 +5,7 @@ import { z } from "zod";
 import { FaCheck } from "react-icons/fa";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import type { ContactFormProps } from "@/types/contact.types";
 
 const schema = z.object({

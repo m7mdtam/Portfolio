@@ -1,7 +1,7 @@
 import { useScroll } from "@/contexts/scroll-context";
-import Footer from "@/components/layout/footer";
-import { contactData } from "@/data/contact-data";
-import Contact from "@/components/contact/contact";
+import { Footer } from "@/components/layout";
+import { contactData } from "@/data";
+import { Contact } from "@/components/contact";
 
 const ContactSection = () => {
   const { register } = useScroll();

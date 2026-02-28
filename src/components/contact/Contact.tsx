@@ -1,7 +1,6 @@
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import type { ContactProps } from "@/types/contact.types";
-import ContactInfo from "./contact-info";
-import ContactForm from "./contact-form";
+import { ContactInfo, ContactForm } from ".";
 
 const Contact = ({
   tag,

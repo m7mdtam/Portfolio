@@ -1,6 +1,6 @@
-import { heroData } from "@/data/hero-data";
+import { heroData } from "@/data";
 import { useScroll } from "@/contexts/scroll-context";
-import Hero from "@/components/hero/hero";
+import { Hero } from "@/components/hero";
 
 const HeroSection = () => {
   const { register } = useScroll();

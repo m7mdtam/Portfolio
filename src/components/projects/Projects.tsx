@@ -1,5 +1,5 @@
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
-import ProjectCard from "./project-card";
+import { ScrollReveal } from "@/components/react-bits";
+import { ProjectCard } from ".";
 import type { ProjectsProps } from "@/types/projects.types";
 
 const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {

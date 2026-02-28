@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import type { AboutTextProps } from "@/types/about.types";
 
 const AboutText = ({ tag, heading, bio }: AboutTextProps) => (

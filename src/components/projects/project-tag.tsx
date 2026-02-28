@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import type { ProjectTagProps } from "@/types/projects.types";
 
 const ProjectTag = ({ label, delay = 0 }: ProjectTagProps) => (

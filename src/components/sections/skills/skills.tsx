@@ -1,6 +1,6 @@
 import { useScroll } from "@/contexts/scroll-context";
-import Skills from "@/components/skills/skills";
-import { skillsData } from "@/data/skills-data";
+import { Skills } from "@/components/skills";
+import { skillsData } from "@/data";
 
 const SkillsSection = () => {
   const { register } = useScroll();

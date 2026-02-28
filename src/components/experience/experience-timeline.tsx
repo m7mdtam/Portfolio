@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import ExperienceCard from "./experience-card";
 import type { ExperienceTimelineProps } from "@/types/experience.types";
 

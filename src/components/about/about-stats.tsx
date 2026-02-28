@@ -1,5 +1,4 @@
-import SpotlightCard from "@/components/react-bits/SpotlightCard";
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { SpotlightCard, ScrollReveal } from "@/components/react-bits";
 import type { AboutStatsProps } from "@/types/about.types";
 
 const AboutStats = ({ stats }: AboutStatsProps) => (
