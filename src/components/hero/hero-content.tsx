@@ -1,5 +1,4 @@
-import BlurText from "@/components/react-bits/BlurText";
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { BlurText, ScrollReveal } from "@/components/react-bits";
 import type { HeroContentProps } from "@/types/hero.types";
 
 const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (

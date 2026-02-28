@@ -1,6 +1,6 @@
 import { ExternalLink, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import ProjectTag from "./project-tag";
 import type { ProjectCardProps, ProjectStatus } from "@/types/projects.types";
 
@@ -18,7 +18,9 @@ const ProjectCard = ({ item, index }: ProjectCardProps) => {
       <div className="relative border border-border bg-card/60 overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.12)] group h-full flex flex-col">
         <div className="h-0.5 w-full bg-primary transition-all duration-300 group-hover:h-1" />
 
-        <div className={`flex flex-col flex-1 ${item.featured ? "md:flex-row" : ""}`}>
+        <div
+          className={`flex flex-col flex-1 ${item.featured ? "md:flex-row" : ""}`}
+        >
           <div className="flex flex-col flex-1 p-6 gap-5">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-col gap-1">

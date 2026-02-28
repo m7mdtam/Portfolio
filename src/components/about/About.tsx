@@ -1,6 +1,5 @@
 import type { AboutProps } from "@/types/about.types";
-import AboutText from "./about-text";
-import AboutStats from "./about-stats";
+import { AboutText, AboutStats } from ".";
 
 const About = ({ data }: AboutProps) => (
   <section className="relative w-full py-24 px-6 md:px-12 lg:px-20">

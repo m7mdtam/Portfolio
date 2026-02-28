@@ -1,6 +1,6 @@
-import About from "@/components/about/about";
+import { About } from "@/components/about";
 import { useScroll } from "@/contexts/scroll-context";
-import { aboutData } from "@/data/about-data";
+import { aboutData } from "@/data";
 
 const AboutSection = () => {
   const { register } = useScroll();

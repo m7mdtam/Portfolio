@@ -1,6 +1,6 @@
 import { useScroll } from "@/contexts/scroll-context";
-import Projects from "@/components/projects/projects";
-import { projectsData } from "@/data/projects-data";
+import { Projects } from "@/components/projects";
+import { projectsData } from "@/data";
 
 const ProjectsSection = () => {
   const { register } = useScroll();

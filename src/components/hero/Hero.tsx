@@ -1,8 +1,7 @@
 import { useScroll } from "@/contexts/scroll-context";
 import type { HeroProps } from "@/types/hero.types";
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
-import HeroContent from "./hero-content";
-import HeroActions from "./hero-actions";
+import { ScrollReveal } from "@/components/react-bits";
+import { HeroContent, HeroActions } from ".";
 
 const Hero = ({ data }: HeroProps) => {
   const { scrollTo } = useScroll();

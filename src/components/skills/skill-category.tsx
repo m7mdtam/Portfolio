@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { ScrollReveal } from "@/components/react-bits";
 import type { SkillCategoryProps } from "@/types/skills.types";
 import SkillCard from "./skill-card";
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import GooeyNav from "@/components/react-bits/GooeyNav";
+import { GooeyNav } from "@/components/react-bits";
 import { Button } from "@/components/ui/button";
 import { useScroll } from "@/contexts/scroll-context";
 import type { Section } from "@/contexts/scroll-context";
