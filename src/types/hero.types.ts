@@ -1,6 +1,11 @@
 import type { Section } from "@/contexts/scroll-context";
 
-export type SocialPlatform = "github" | "linkedin";
+export type SocialPlatform =
+  | "github"
+  | "linkedin"
+  | "instagram"
+  | "facebook"
+  | "x";
 
 export type CTAVariant = "default" | "outline";
 

@@ -1,47 +1,105 @@
 @font-face {
-  font-family: 'Sol';
-  src: url('@/assets/sol.ttf') format('truetype');
+  font-family: "Sol";
+  src: url("@/assets/sol.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Chopra";
+  src: url("@/assets/chopra.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    font-family: "Chopra", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Sol", sans-serif;
+  }
+
+  p,
+  span,
+  li,
+  a {
+    font-family: "Chopra", sans-serif;
+  }
+
+  .blur-text span {
+    font-family: inherit;
+  }
+}
+
+@utility font-title {
+  font-family: "Sol", sans-serif;
+}
+
+@utility font-chopra {
+  font-family: "Chopra", sans-serif;
+}
+
 @utility text-title {
+  font-family: "Sol", sans-serif;
   font-size: clamp(44px, 2.5rem + 3vw, 64px);
   line-height: clamp(52px, 3rem + 3vw, 80px);
+  letter-spacing: -0.02em;
 }
 
 @utility text-h1 {
+  font-family: "Sol", sans-serif;
   font-size: clamp(34px, 1.8rem + 2.25vw, 48px);
   line-height: clamp(42px, 2.2rem + 2.5vw, 64px);
+  letter-spacing: -0.01em;
 }
 
 @utility text-h2 {
+  font-family: "Sol", sans-serif;
   font-size: clamp(28px, 1.5rem + 1.75vw, 38px);
   line-height: clamp(36px, 1.8rem + 2vw, 54px);
+  letter-spacing: -0.005em;
 }
 
 @utility text-h3 {
+  font-family: "Sol", sans-serif;
   font-size: clamp(22px, 1.2rem + 1vw, 28px);
   line-height: clamp(30px, 1.5rem + 1.5vw, 44px);
 }
 
 @utility text-h4 {
+  font-family: "Sol", sans-serif;
   font-size: clamp(18px, 1rem + 0.75vw, 22px);
   line-height: clamp(26px, 1.3rem + 1.2vw, 38px);
 }
 
 @utility text-h5 {
+  font-family: "Chopra", sans-serif;
   font-size: clamp(16px, 0.9rem + 0.5vw, 18px);
   line-height: clamp(24px, 1.2rem + 0.75vw, 32px);
+  font-weight: 600;
 }
 
 @utility text-body {
+  font-family: "Chopra", sans-serif;
   font-size: clamp(16px, 0.9rem + 0.35vw, 18px);
   line-height: clamp(26px, 1.4rem + 0.6vw, 30px);
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 @utility text-sm {
+  font-family: "Chopra", sans-serif;
   font-size: clamp(13px, 0.75rem + 0.25vw, 15px);
   line-height: clamp(20px, 1.1rem + 0.5vw, 24px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }

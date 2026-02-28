@@ -9,15 +9,15 @@ const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (
       direction="top"
       delay={160}
       stepDuration={0.65}
-      className="text-title font-bold tracking-tight text-foreground justify-center md:justify-start"
+      className="text-title font-title  font-bold tracking-tight text-foreground justify-center md:justify-start"
     />
 
     <ScrollReveal delay={0.3}>
-      <p className="text-h3 font-semibold text-primary">{title}</p>
+      <p className="text-h3 font-title font-semibold text-primary">{title}</p>
     </ScrollReveal>
 
     <ScrollReveal delay={0.45}>
-      <p className="text-body text-muted-foreground tracking-wide">
+      <p className="text-body font-title text-muted-foreground tracking-wide">
         {subtitle}
       </p>
     </ScrollReveal>

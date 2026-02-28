@@ -9,10 +9,10 @@ const AboutStats = ({ stats }: AboutStatsProps) => (
           className="border border-border bg-card/80 backdrop-blur rounded-sm p-6 flex flex-col items-center justify-center text-center min-h-32 h-full"
           spotlightColor="rgba(100, 108, 255, 0.18)"
         >
-          <span className="text-h1 font-bold leading-none text-primary">
+          <span className="text-h1 font-title font-bold leading-none text-primary">
             {stat.value}
           </span>
-          <span className="text-sm mt-3 leading-snug text-text-secondary">
+          <span className="text-sm font-title mt-3 leading-snug text-text-secondary">
             {stat.label}
           </span>
         </SpotlightCard>

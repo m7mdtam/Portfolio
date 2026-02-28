@@ -24,14 +24,14 @@ const ProjectCard = ({ item, index }: ProjectCardProps) => {
           <div className="flex flex-col flex-1 p-6 gap-5">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-col gap-1">
-                <h3 className="text-h3 font-bold text-foreground leading-tight">
+                <h3 className="text-h3 font-title font-bold text-foreground leading-tight">
                   {item.name}
                 </h3>
-                <span className="text-sm text-text-muted">{item.type}</span>
+                <span className="text-sm font-title text-text-muted">{item.type}</span>
               </div>
 
               <span
-                className={`shrink-0 border px-2 py-0.5 text-xs font-semibold uppercase tracking-wide ${statusStyles[item.status]}`}
+                className={`shrink-0 border px-2 py-0.5 text-xs font-title font-semibold uppercase tracking-wide ${statusStyles[item.status]}`}
               >
                 {item.status}
               </span>

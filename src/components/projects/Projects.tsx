@@ -13,14 +13,16 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
       <div className="max-w-5xl mx-auto flex flex-col gap-14">
         <div className="flex flex-col gap-4">
           <ScrollReveal>
-            <span className="text-sm font-mono uppercase tracking-widest text-primary">
+            <span className="text-sm font-title uppercase tracking-widest text-primary">
               {tag}
             </span>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <div className="flex items-center gap-3">
-              <h2 className="text-h1 font-bold text-foreground">{title}</h2>
+              <h2 className="text-h1 font-title font-bold text-foreground">
+                {title}
+              </h2>
               <div className="w-3 h-3 bg-primary shrink-0" />
             </div>
           </ScrollReveal>

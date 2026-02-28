@@ -35,6 +35,21 @@ export const contactData: ContactData = {
       href: "https://www.linkedin.com/in/mohammed-tamimi-b252b0321/",
       label: "LinkedIn",
     },
+    {
+      icon: "instagram",
+      href: "https://www.instagram.com/eng_tamimi/",
+      label: "Instagram",
+    },
+    {
+      icon: "facebook",
+      href: "https://www.facebook.com/abu.tamimi.xd",
+      label: "Facebook",
+    },
+    {
+      icon: "x",
+      href: "https://x.com/eng_tamimi0",
+      label: "X",
+    },
   ],
   form: {
     nameLabel: "Full Name",
@@ -62,6 +77,21 @@ export const contactData: ContactData = {
         icon: "linkedin",
         href: "https://www.linkedin.com/in/mohammed-tamimi-b252b0321/",
         label: "LinkedIn",
+      },
+      {
+        icon: "instagram",
+        href: "https://www.instagram.com/eng_tamimi/",
+        label: "Instagram",
+      },
+      {
+        icon: "facebook",
+        href: "https://www.facebook.com/abu.tamimi.xd",
+        label: "Facebook",
+      },
+      {
+        icon: "x",
+        href: "https://x.com/eng_tamimi0",
+        label: "X",
       },
     ],
   },

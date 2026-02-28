@@ -4,13 +4,15 @@ import type { AboutTextProps } from "@/types/about.types";
 const AboutText = ({ tag, heading, bio }: AboutTextProps) => (
   <div className="flex flex-col gap-6 max-w-3xl">
     <ScrollReveal>
-      <span className="text-sm font-mono uppercase tracking-widest text-primary">
+      <span className="text-sm font-title uppercase tracking-widest text-primary">
         {tag}
       </span>
     </ScrollReveal>
 
     <ScrollReveal delay={0.1}>
-      <h2 className="text-h1 font-bold text-foreground">{heading}</h2>
+      <h2 className="text-h1 font-title font-bold text-foreground">
+        {heading}
+      </h2>
     </ScrollReveal>
 
     <ScrollReveal delay={0.2}>

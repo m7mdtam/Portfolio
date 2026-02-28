@@ -1,15 +1,24 @@
 import { ScrollReveal } from "@/components/react-bits";
 import type { ContactInfoProps } from "@/types/contact.types";
 import { ContactInfoCard } from ".";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaXTwitter,
+} from "react-icons/fa6";
 import type { ComponentType } from "react";
 
 const socialIconMap: Record<
-  "github" | "linkedin",
+  "github" | "linkedin" | "instagram" | "facebook" | "x",
   ComponentType<{ size?: number }>
 > = {
   github: FaGithub,
   linkedin: FaLinkedin,
+  instagram: FaInstagram,
+  facebook: FaFacebook,
+  x: FaXTwitter,
 };
 
 const ContactInfo = ({ intro, infoItems, socialLinks }: ContactInfoProps) => (

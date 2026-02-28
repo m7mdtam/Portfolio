@@ -14,7 +14,7 @@ const SkillCard = ({ name, delay = 0 }: SkillCardProps) => {
             className="text-primary transition-colors duration-200 group-hover:text-background shrink-0"
           />
         )}
-        <span className="text-[0.75rem] font-semibold text-center leading-tight text-foreground transition-colors duration-200 group-hover:text-background w-full px-1">
+        <span className="text-[0.75rem] font-title font-semibold text-center leading-tight text-foreground transition-colors duration-200 group-hover:text-background w-full px-1">
           {name}
         </span>
       </div>
