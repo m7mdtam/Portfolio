@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { GooeyNav } from "@/components/react-bits";
 import { Button } from "@/components/ui/button";
 import { useScroll } from "@/contexts/scroll-context";
 import type { Section } from "@/contexts/scroll-context";
+import { useTheme } from "@/providers/theme-provider";
 
 const NAV_SECTIONS: Section[] = [
   "about",
@@ -14,7 +15,7 @@ const NAV_SECTIONS: Section[] = [
 ];
 const NAV_LABELS = ["About", "Skills", "Experience", "Projects", "Contact"];
 
-const pill = "bg-card/80 border border-primary/25 backdrop-blur-md";
+const pill = "bg-card/80 border border-text-secondary/20 backdrop-blur-md";
 
 const LogoSvg = () => (
   <svg
@@ -75,12 +76,20 @@ const LogoSvg = () => (
 
 const Navbar = () => {
   const { scrollTo, getElement } = useScroll();
+  const { theme, setTheme } = useTheme();
   const [activeNavIndex, setActiveNavIndex] = useState<number | undefined>(
     undefined,
   );
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const isDark =
+    theme === "dark" ||
+    (theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -168,6 +177,15 @@ const Navbar = () => {
         />
       </div>
 
+      <Button
+        variant="ghost"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+        className={`hidden md:flex w-14 h-14 cursor-pointer rounded-full p-0 hover:bg-transparent ${pill}`}
+      >
+        {isDark ? <Sun className="size-6" /> : <Moon className="size-6" />}
+      </Button>
+
       <div
         className={`relative md:hidden flex items-center justify-between gap-6 rounded-full px-5 py-2 w-[50vw] ${pill}`}
         ref={dropdownRef}
@@ -181,14 +199,29 @@ const Navbar = () => {
           <LogoSvg />
         </Button>
 
-        <Button
-          variant="ghost"
-          onClick={() => setMobileOpen((o) => !o)}
-          aria-label="Toggle menu"
-          className="p-2 hover:bg-transparent text-foreground shrink-0"
-        >
-          {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-        </Button>
+        <div className="flex items-center gap-1">
+          <Button
+            variant="ghost"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 hover:bg-transparent text-foreground shrink-0"
+          >
+            {isDark ? <Sun className="size-6" /> : <Moon className="size-6" />}
+          </Button>
+
+          <Button
+            variant="ghost"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Toggle menu"
+            className="p-2 hover:bg-transparent text-foreground shrink-0"
+          >
+            {mobileOpen ? (
+              <X className="size-6" />
+            ) : (
+              <Menu className="size-6" />
+            )}
+          </Button>
+        </div>
 
         {mobileOpen && (
           <div

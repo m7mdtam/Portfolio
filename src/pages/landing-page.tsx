@@ -9,16 +9,35 @@ import {
   ContactSection,
 } from "@/components/sections";
 import { ScrollProvider } from "@/contexts/scroll-context";
+import { useTheme } from "@/providers/theme-provider";
 
 const LandingPage = () => {
+  const { theme } = useTheme();
+  const isDark =
+    theme === "dark" ||
+    (theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+  const squareProps = isDark
+    ? {
+        borderColor: "#1e2247",
+        hoverFillColor: "#1a1e40",
+        gradientColor: "#060010",
+      }
+    : {
+        borderColor: "#c2c6e0",
+        hoverFillColor: "#dddff4",
+        gradientColor: "#eeeef8",
+      };
+
   return (
     <ScrollProvider>
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 opacity-30 max-w-screen overflow-hidden">
         <Squares
           direction="diagonal"
           speed={0.5}
-          borderColor="#1a1e38"
           squareSize={40}
+          {...squareProps}
         />
       </div>
 
