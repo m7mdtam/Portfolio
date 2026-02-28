@@ -18,7 +18,7 @@ const ScrollReveal = ({
   children,
   delay = 0,
   direction = "up",
-  duration = 0.7,
+  duration = 0.5,
   distance = 40,
   className,
 }: Props) => {
@@ -41,7 +41,7 @@ const ScrollReveal = ({
 
       ScrollTrigger.create({
         trigger: el,
-        start: "top 88%",
+        start: "top 95%",
         onEnter: () => {
           gsap.fromTo(el, { ...enterFrom }, { opacity: 1, y: 0, x: 0, duration, delay, ease: "power3.out", overwrite: "auto" });
         },
