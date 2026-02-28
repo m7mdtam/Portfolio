@@ -11,7 +11,7 @@ const SkillCategory = ({
     <ScrollReveal delay={categoryDelay} direction="up">
       <div className="flex items-center gap-3">
         <div className="w-2.5 h-2.5 bg-primary shrink-0" />
-        <span className="text-sm font-semibold uppercase tracking-widest text-foreground">
+        <span className="text-sm font-title font-semibold uppercase tracking-widest text-foreground">
           {label}
         </span>
       </div>

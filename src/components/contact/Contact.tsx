@@ -21,7 +21,9 @@ const Contact = ({
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h2 className="text-h1 font-bold text-foreground">{title}</h2>
+          <h2 className="text-h1 font-title font-bold text-foreground">
+            {title}
+          </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>

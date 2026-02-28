@@ -1,4 +1,12 @@
-export type ContactIconKey = "email" | "phone" | "location" | "github" | "linkedin";
+export type ContactIconKey =
+  | "email"
+  | "phone"
+  | "location"
+  | "github"
+  | "linkedin"
+  | "instagram"
+  | "facebook"
+  | "x";
 
 export interface ContactInfoItem {
   icon: ContactIconKey;
@@ -22,7 +30,7 @@ export interface ContactFormLabels {
 }
 
 export interface FooterLink {
-  icon: "github" | "linkedin";
+  icon: "github" | "linkedin" | "instagram" | "facebook" | "x";
   href: string;
   label: string;
 }

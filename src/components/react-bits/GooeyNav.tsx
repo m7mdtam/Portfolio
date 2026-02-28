@@ -206,6 +206,7 @@ const GooeyNav = ({
           }
           .effect.text {
             color: white;
+            font-family: "Sol", sans-serif;
             transition: color 0.3s ease;
           }
           .effect.text.active {
@@ -348,7 +349,7 @@ const GooeyNav = ({
                   href={item.href}
                   onClick={(e) => handleClick(e, index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="outline-none py-[0.6em] px-[1em] inline-block"
+                  className="outline-none py-[0.6em] px-[1em] inline-block font-title"
                 >
                   {item.label}
                 </a>

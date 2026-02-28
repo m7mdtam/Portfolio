@@ -1,13 +1,22 @@
 import type { FooterProps } from "@/types/contact.types";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaXTwitter,
+} from "react-icons/fa6";
 import type { ComponentType } from "react";
 
 const iconMap: Record<
-  "github" | "linkedin",
+  "github" | "linkedin" | "instagram" | "facebook" | "x",
   ComponentType<{ size?: number }>
 > = {
   github: FaGithub,
   linkedin: FaLinkedin,
+  instagram: FaInstagram,
+  facebook: FaFacebook,
+  x: FaXTwitter,
 };
 
 const Footer = ({ copyright, links }: FooterProps) => {

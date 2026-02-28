@@ -2,16 +2,26 @@ import type {
   ContactInfoCardProps,
   ContactIconKey,
 } from "@/types/contact.types";
-import { MdEmail } from "react-icons/md";
-import { FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail, MdLocationOn } from "react-icons/md";
+import {
+  FaWhatsapp,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaXTwitter,
+} from "react-icons/fa6";
 import type { ComponentType } from "react";
 
 const iconMap: Record<ContactIconKey, ComponentType<{ size?: number }>> = {
   email: MdEmail,
-  phone: FaPhone,
-  location: FaMapMarkerAlt,
+  phone: FaWhatsapp,
+  location: MdLocationOn,
   github: FaGithub,
   linkedin: FaLinkedin,
+  instagram: FaInstagram,
+  facebook: FaFacebook,
+  x: FaXTwitter,
 };
 
 const ContactInfoCard = ({ item }: ContactInfoCardProps) => {

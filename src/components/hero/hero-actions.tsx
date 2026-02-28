@@ -1,4 +1,10 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaXTwitter,
+} from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import type { HeroActionsProps, SocialPlatform } from "@/types/hero.types";
@@ -7,6 +13,9 @@ import type { ComponentType } from "react";
 const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
   github: FaGithub,
   linkedin: FaLinkedin,
+  instagram: FaInstagram,
+  facebook: FaFacebook,
+  x: FaXTwitter,
 };
 
 const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
