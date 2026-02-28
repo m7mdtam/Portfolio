@@ -154,7 +154,6 @@ const Navbar = () => {
         <LogoSvg />
       </Button>
 
-      {/* Desktop GooeyNav */}
       <div
         className={`hidden md:block rounded-full px-2 py-1.5 overflow-hidden ${pill}`}
         style={
@@ -178,7 +177,6 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Mobile: logo left + hamburger right in one pill */}
       <div
         className={`relative md:hidden flex items-center justify-between gap-6 rounded-full px-5 py-2 w-[50vw] ${pill}`}
         ref={dropdownRef}
