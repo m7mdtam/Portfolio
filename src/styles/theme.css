@@ -1,4 +1,4 @@
-@import './colors.css';
+@import "./colors.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -31,9 +31,16 @@
   --color-secondary: var(--background-muted);
   --color-secondary-foreground: var(--text-primary);
   --color-muted: var(--background-muted);
-  --color-muted-foreground: var(--text-muted);
+  --color-muted-foreground: var(--text-secondary);
   --color-destructive: oklch(0.577 0.245 27.325);
   --color-border: var(--text-border);
   --color-input: var(--text-border);
   --color-ring: var(--accent-primary);
+
+  --color-status-success: var(--status-success);
+  --color-status-success-bg: var(--status-success-bg);
+  --color-status-warning: var(--status-warning);
+  --color-status-warning-bg: var(--status-warning-bg);
+  --color-status-neutral: var(--status-neutral);
+  --color-status-neutral-bg: var(--status-neutral-bg);
 }

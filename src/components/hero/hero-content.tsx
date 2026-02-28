@@ -17,7 +17,7 @@ const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (
     </ScrollReveal>
 
     <ScrollReveal delay={0.45}>
-      <p className="text-body font-title text-muted-foreground tracking-wide">
+      <p className="text-body font-title text-text-secondary tracking-wide">
         {subtitle}
       </p>
     </ScrollReveal>

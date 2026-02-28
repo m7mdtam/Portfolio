@@ -5,8 +5,10 @@ import ProjectTag from "./project-tag";
 import type { ProjectCardProps, ProjectStatus } from "@/types/projects.types";
 
 const statusStyles: Record<ProjectStatus, string> = {
-  "In Production": "border-emerald-500/50 bg-emerald-500/10 text-emerald-400",
-  "In Progress": "border-primary/50 bg-accent text-primary",
+  "In Production":
+    "border-status-success bg-status-success-bg text-status-success",
+  "In Progress":
+    "border-status-warning bg-status-warning-bg text-status-warning",
   Completed: "border-border bg-card text-text-secondary",
 };
 
@@ -27,7 +29,9 @@ const ProjectCard = ({ item, index }: ProjectCardProps) => {
                 <h3 className="text-h3 font-title font-bold text-foreground leading-tight">
                   {item.name}
                 </h3>
-                <span className="text-sm font-title text-text-muted">{item.type}</span>
+                <span className="text-sm font-title text-text-muted">
+                  {item.type}
+                </span>
               </div>
 
               <span

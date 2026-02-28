@@ -1,7 +1,7 @@
 import type { ExperienceCardProps } from "@/types/experience.types";
 
 const ExperienceCard = ({ item }: ExperienceCardProps) => (
-  <div className="relative border border-border bg-card/60 p-6 overflow-hidden transition-all duration-200 hover:bg-card hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] group">
+  <div className="relative border border-border bg-card/60 p-6 overflow-hidden transition-all duration-200 hover:bg-card hover:shadow-lg group">
     <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary transition-all duration-200 group-hover:w-1" />
 
     <h3 className="text-h4 font-title font-bold text-foreground leading-tight mb-2">
@@ -19,10 +19,14 @@ const ExperienceCard = ({ item }: ExperienceCardProps) => (
           {item.company}
         </a>
       ) : (
-        <span className="text-primary font-title font-semibold">{item.company}</span>
+        <span className="text-primary font-title font-semibold">
+          {item.company}
+        </span>
       )}
       <span className="text-border">·</span>
-      <span className="text-text-muted font-title text-sm">{item.location}</span>
+      <span className="text-text-muted font-title text-sm">
+        {item.location}
+      </span>
     </div>
 
     <div className="flex flex-wrap items-center gap-2 mb-4">

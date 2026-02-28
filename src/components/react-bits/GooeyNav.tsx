@@ -94,7 +94,9 @@ const GooeyNav = ({
         setTimeout(() => {
           try {
             element.removeChild(particle);
-          } catch {}
+          } catch {
+            /* empty */
+          }
         }, t);
       }, 30);
     }
@@ -160,10 +162,15 @@ const GooeyNav = ({
       setActiveIndex(-1);
       textRef.current?.classList.remove("active");
       filterRef.current?.classList.remove("active");
+      if (textRef.current) {
+        textRef.current.innerText = "";
+      }
       return;
     }
     if (syncActiveIndex === activeIndex) return;
-    const li = navRef.current?.querySelectorAll("li")[syncActiveIndex] as HTMLElement;
+    const li = navRef.current?.querySelectorAll("li")[
+      syncActiveIndex
+    ] as HTMLElement;
     if (li) {
       setActiveIndex(syncActiveIndex);
       updateEffectPosition(li);
@@ -174,13 +181,17 @@ const GooeyNav = ({
 
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
-    const activeLi = navRef.current.querySelectorAll("li")[activeIndex] as HTMLElement;
+    const activeLi = navRef.current.querySelectorAll("li")[
+      activeIndex
+    ] as HTMLElement;
     if (activeLi) {
       updateEffectPosition(activeLi);
       textRef.current?.classList.add("active");
     }
     const resizeObserver = new ResizeObserver(() => {
-      const currentActiveLi = navRef.current?.querySelectorAll("li")[activeIndex] as HTMLElement;
+      const currentActiveLi = navRef.current?.querySelectorAll("li")[
+        activeIndex
+      ] as HTMLElement;
       if (currentActiveLi) {
         updateEffectPosition(currentActiveLi);
       }
@@ -205,41 +216,71 @@ const GooeyNav = ({
             z-index: 1;
           }
           .effect.text {
-            color: white;
+            color: black;
             font-family: "Sol", sans-serif;
             transition: color 0.3s ease;
           }
           .effect.text.active {
-            color: black;
+            color: var(--accent-primary);
+          }
+          @media (prefers-color-scheme: dark) {
+            .effect.text {
+              color: black;
+            }
+            .effect.text.active {
+              color: var(--accent-primary);
+            }
           }
           .effect.filter {
-            filter: blur(7px) contrast(100) blur(0);
-            mix-blend-mode: lighten;
+            /* gradient/blur effect removed */
           }
           .effect.filter::before {
             content: "";
             position: absolute;
             inset: -75px;
             z-index: -2;
-            background: black;
+            background: transparent;
           }
           .effect.filter::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: white;
+            background: transparent;
             transform: scale(0);
             opacity: 0;
             z-index: -1;
             border-radius: 9999px;
           }
           .effect.active::after {
-            animation: pill 0.3s ease both;
+            animation: none;
           }
-          @keyframes pill {
-            to {
-              transform: scale(1);
-              opacity: 1;
+          li {
+            transition: color 0.3s ease;
+            color: black;
+            font-weight: 700;
+          }
+          li:hover {
+            color: var(--accent-primary);
+          }
+          li.active {
+            color: var(--accent-primary);
+            text-shadow: none;
+          }
+          li.active:hover {
+            color: var(--accent-primary);
+          }
+          @media (prefers-color-scheme: dark) {
+            li {
+              color: var(--text-primary);
+            }
+            li:hover {
+              color: var(--accent-primary);
+            }
+            li.active {
+              color: var(--accent-primary);
+            }
+            li.active:hover {
+              color: var(--accent-primary);
             }
           }
           .particle,
@@ -269,38 +310,23 @@ const GooeyNav = ({
               opacity: 1;
               animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
             }
-            70% {
-              transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
+            50% {
+              transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x)), calc(var(--end-y)));
               opacity: 1;
-              animation-timing-function: ease;
-            }
-            85% {
-              transform: rotate(calc(var(--rotate) * 0.66)) translate(calc(var(--end-x)), calc(var(--end-y)));
-              opacity: 1;
+              animation-timing-function: steps(3, jump-none);
             }
             100% {
-              transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5));
-              opacity: 1;
+              transform: rotate(calc(var(--rotate))) translate(calc(var(--end-x) * 1.5), calc(var(--end-y) * 1.5));
+              opacity: 0;
             }
           }
           @keyframes point {
             0% {
               transform: scale(0);
-              opacity: 0;
+              opacity: 1;
               animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
             }
-            25% {
-              transform: scale(calc(var(--scale) * 0.25));
-            }
-            38% {
-              opacity: 1;
-            }
-            65% {
-              transform: scale(var(--scale));
-              opacity: 1;
-              animation-timing-function: ease;
-            }
-            85% {
+            50% {
               transform: scale(var(--scale));
               opacity: 1;
             }
@@ -308,21 +334,13 @@ const GooeyNav = ({
               transform: scale(0);
               opacity: 0;
             }
-          }
-          li.active {
-            color: black;
-            text-shadow: none;
-          }
-          li.active::after {
-            opacity: 1;
-            transform: scale(1);
           }
           li::after {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: 8px;
-            background: white;
+            background: transparent;
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;
@@ -331,9 +349,7 @@ const GooeyNav = ({
         `}
       </style>
       <div className="relative" ref={containerRef}>
-        <nav
-          className="flex relative transform-[translate3d(0,0,0.01px)]"
-        >
+        <nav className="flex relative transform-[translate3d(0,0,0.01px)]">
           <ul
             ref={navRef}
             className="flex gap-8 list-none p-0 px-4 m-0 relative z-3 text-text-secondary"
