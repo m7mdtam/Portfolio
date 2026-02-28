@@ -17,14 +17,12 @@ const LetterGlitch = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
-  const letters = useRef<
-    {
-      char: string;
-      color: string;
-      targetColor: string;
-      colorProgress: number;
-    }[]
-  >([]);
+  const letters = useRef<{
+    char: string;
+    color: string;
+    targetColor: string;
+    colorProgress: number;
+  }[]>([]);
   const grid = useRef({ columns: 0, rows: 0 });
   const context = useRef<CanvasRenderingContext2D | null>(null);
   const lastGlitchTime = useRef(Date.now());
@@ -35,27 +33,18 @@ const LetterGlitch = ({
   const charWidth = 10;
   const charHeight = 20;
 
-  const getRandomChar = () => {
-    return lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
-  };
+  const getRandomChar = () =>
+    lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
 
-  const getRandomColor = () => {
-    return glitchColors[Math.floor(Math.random() * glitchColors.length)];
-  };
+  const getRandomColor = () =>
+    glitchColors[Math.floor(Math.random() * glitchColors.length)];
 
   const hexToRgb = (hex: string) => {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, (_m, r, g, b) => {
-      return r + r + g + g + b + b;
-    });
-
+    hex = hex.replace(shorthandRegex, (_m, r, g, b) => r + r + g + g + b + b);
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
-        }
+      ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) }
       : null;
   };
 
@@ -67,16 +56,15 @@ const LetterGlitch = ({
     const result = {
       r: Math.round(start.r + (end.r - start.r) * factor),
       g: Math.round(start.g + (end.g - start.g) * factor),
-      b: Math.round(start.b + (end.b - start.b) * factor)
+      b: Math.round(start.b + (end.b - start.b) * factor),
     };
     return `rgb(${result.r}, ${result.g}, ${result.b})`;
   };
 
-  const calculateGrid = (width: number, height: number) => {
-    const columns = Math.ceil(width / charWidth);
-    const rows = Math.ceil(height / charHeight);
-    return { columns, rows };
-  };
+  const calculateGrid = (width: number, height: number) => ({
+    columns: Math.ceil(width / charWidth),
+    rows: Math.ceil(height / charHeight),
+  });
 
   const initializeLetters = (columns: number, rows: number) => {
     grid.current = { columns, rows };
@@ -85,7 +73,7 @@ const LetterGlitch = ({
       char: getRandomChar(),
       color: getRandomColor(),
       targetColor: getRandomColor(),
-      colorProgress: 1
+      colorProgress: 1,
     }));
   };
 
@@ -100,7 +88,6 @@ const LetterGlitch = ({
 
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
-
     canvas.style.width = `${rect.width}px`;
     canvas.style.height = `${rect.height}px`;
 
@@ -166,9 +153,7 @@ const LetterGlitch = ({
       }
     });
 
-    if (needsRedraw) {
-      drawLetters();
-    }
+    if (needsRedraw) drawLetters();
   };
 
   const animate = () => {
@@ -179,9 +164,7 @@ const LetterGlitch = ({
       lastGlitchTime.current = now;
     }
 
-    if (smooth) {
-      handleSmoothTransitions();
-    }
+    if (smooth) handleSmoothTransitions();
 
     animationRef.current = requestAnimationFrame(animate);
   };
@@ -214,45 +197,15 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
-  const containerStyle = {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#000000',
-    overflow: 'hidden'
-  };
-
-  const canvasStyle = {
-    display: 'block',
-    width: '100%',
-    height: '100%'
-  };
-
-  const outerVignetteStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    pointerEvents: 'none',
-    background: 'radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%)'
-  };
-
-  const centerVignetteStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    pointerEvents: 'none',
-    background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)'
-  };
-
   return (
-    <div style={containerStyle as React.CSSProperties}>
-      <canvas ref={canvasRef} style={canvasStyle} />
-      {outerVignette && <div style={outerVignetteStyle as React.CSSProperties}></div>}
-      {centerVignette && <div style={centerVignetteStyle as React.CSSProperties}></div>}
+    <div className="relative w-full h-full bg-black overflow-hidden">
+      <canvas ref={canvasRef} className="block w-full h-full" />
+      {outerVignette && (
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0)_60%,rgba(0,0,0,1)_100%)]" />
+      )}
+      {centerVignette && (
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_60%)]" />
+      )}
     </div>
   );
 };

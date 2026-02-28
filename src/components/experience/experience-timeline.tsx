@@ -19,11 +19,8 @@ const dotAnim = (delay: number) => ({
 
 const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
   <>
-    {/* ── MOBILE (< md) ── */}
     <div className="md:hidden relative">
-      {/* Background line */}
       <div className="absolute left-4 top-0 bottom-0 w-px bg-border" />
-      {/* Animated primary line */}
       <motion.div
         {...lineAnim}
         className="absolute left-4 top-0 bottom-0 w-px bg-primary origin-top"
@@ -32,7 +29,6 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
       <div className="flex flex-col gap-8">
         {items.map((item, i) => (
           <div key={i} className="flex items-start gap-0">
-            {/* Dot column — w-8 centers dot at left-4 (same as line) */}
             <div className="shrink-0 w-8 flex justify-center pt-5 relative z-10">
               <motion.div
                 {...dotAnim(0.4 + i * 0.15)}
@@ -40,7 +36,6 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
               />
             </div>
 
-            {/* Card */}
             <div className="flex-1 min-w-0">
               <ScrollReveal direction="up" delay={0.1 + i * 0.08}>
                 <ExperienceCard item={item} />
@@ -52,7 +47,6 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
     </div>
 
     <div className="hidden md:block relative">
-      {/* Background line */}
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
       <motion.div
         {...lineAnim}

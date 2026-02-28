@@ -20,8 +20,4 @@ export interface SkillCategoryProps {
   categoryDelay?: number;
 }
 
-export interface SkillsProps {
-  tag: string;
-  title: string;
-  categories: SkillCategory[];
-}
+export type SkillsProps = SkillsData;

@@ -1,4 +1,4 @@
-import type { ContactData } from "../types/contact.types";
+import type { ContactData } from "@/types/contact.types";
 
 export const contactData: ContactData = {
   tag: "Contact",

@@ -11,7 +11,6 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
       <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-20 lg:right-20 h-px bg-border" />
 
       <div className="max-w-5xl mx-auto flex flex-col gap-14">
-        {/* Section header */}
         <div className="flex flex-col gap-4">
           <ScrollReveal>
             <span className="text-sm font-mono uppercase tracking-widest text-primary">
@@ -37,12 +36,9 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
           </ScrollReveal>
         </div>
 
-        {/* Cards grid */}
         <div className="flex flex-col gap-6">
-          {/* Featured card — always full width */}
           {featured && <ProjectCard item={featured} index={0} />}
 
-          {/* Remaining cards — 2-column grid on tablet+ */}
           {rest.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {rest.map((item, i) => (

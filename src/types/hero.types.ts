@@ -1,3 +1,5 @@
+import type { Section } from "@/contexts/scroll-context";
+
 export type SocialPlatform = "github" | "linkedin";
 
 export type CTAVariant = "default" | "outline";
@@ -10,7 +12,7 @@ export interface HeroSocial {
 
 export interface HeroCTA {
   label: string;
-  section: string;
+  section: Section;
   variant: CTAVariant;
 }
 
@@ -34,7 +36,7 @@ export interface HeroContentProps {
 export interface HeroActionsProps {
   cta: HeroCTA[];
   socials: HeroSocial[];
-  onCtaClick: (section: string) => void;
+  onCtaClick: (section: Section) => void;
 }
 
 export interface HeroProps {

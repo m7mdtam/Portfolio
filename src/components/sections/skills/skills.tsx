@@ -1,17 +1,13 @@
 import { useScroll } from "@/contexts/scroll-context";
 import Skills from "@/components/skills/skills";
-import { skillsData } from "@/data/skillsData";
+import { skillsData } from "@/data/skills-data";
 
 const SkillsSection = () => {
   const { register } = useScroll();
 
   return (
     <div ref={register("skills")}>
-      <Skills
-        tag={skillsData.tag}
-        title={skillsData.title}
-        categories={skillsData.categories}
-      />
+      <Skills {...skillsData} />
     </div>
   );
 };

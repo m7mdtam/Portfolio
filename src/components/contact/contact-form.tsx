@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { FaCheck } from "react-icons/fa";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/react-bits/ScrollReveal";
 import type { ContactFormProps } from "@/types/contact.types";
 
@@ -29,7 +31,6 @@ const ContactForm = ({ labels }: ContactFormProps) => {
   const onSubmit = async (_data: FormData) => {
     setSubmitError(false);
     try {
-      // simulate network request
       await new Promise((r) => setTimeout(r, 1000));
       setSuccess(true);
       reset();
@@ -41,7 +42,7 @@ const ContactForm = ({ labels }: ContactFormProps) => {
 
   if (success) {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-background-surface border border-border rounded-none">
+      <div className="flex flex-col items-center justify-center p-8 bg-background-surface border border-border">
         <FaCheck className="text-primary text-4xl mb-4" />
         <p className="text-lg text-foreground text-center">
           {labels.successMessage}
@@ -112,34 +113,14 @@ const ContactForm = ({ labels }: ContactFormProps) => {
         <div className="text-red-500 text-sm">{labels.errorMessage}</div>
       )}
 
-      <button
+      <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3 bg-primary text-primary-foreground font-semibold transition-colors duration-200 hover:brightness-110 rounded-none flex items-center justify-center gap-2"
+        className="w-full rounded-none hover:brightness-110 h-auto py-3"
       >
-        {isSubmitting && (
-          <svg
-            className="animate-spin h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8v8H4z"
-            ></path>
-          </svg>
-        )}
+        {isSubmitting && <Loader2 className="size-5 animate-spin" />}
         {isSubmitting ? labels.sendingLabel : labels.submitLabel}
-      </button>
+      </Button>
     </form>
   );
 };

@@ -23,8 +23,4 @@ export interface ExperienceTimelineProps {
   items: ExperienceItem[];
 }
 
-export interface ExperienceProps {
-  tag: string;
-  title: string;
-  items: ExperienceItem[];
-}
+export type ExperienceProps = ExperienceData;

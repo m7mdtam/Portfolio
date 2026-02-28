@@ -30,9 +30,4 @@ export interface ProjectCardProps {
   index: number;
 }
 
-export interface ProjectsProps {
-  tag: string;
-  title: string;
-  subtitle: string;
-  items: ProjectItem[];
-}
+export type ProjectsProps = ProjectsData;

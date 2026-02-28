@@ -7,7 +7,6 @@ const Experience = ({ tag, title, items }: ExperienceProps) => (
     <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-20 lg:right-20 h-px bg-border" />
 
     <div className="max-w-5xl mx-auto flex flex-col gap-14">
-      {/* Section header */}
       <div className="flex flex-col gap-4">
         <ScrollReveal>
           <span className="text-sm font-mono uppercase tracking-widest text-primary">
@@ -27,7 +26,6 @@ const Experience = ({ tag, title, items }: ExperienceProps) => (
         </ScrollReveal>
       </div>
 
-      {/* Timeline */}
       <ExperienceTimeline items={items} />
     </div>
   </section>

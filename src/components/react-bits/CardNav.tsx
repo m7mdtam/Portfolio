@@ -1,6 +1,5 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-// use your own icon import if react-icons is not available
 import { GoArrowUpRight } from "react-icons/go";
 import "./CardNav.css";
 
@@ -30,7 +29,7 @@ export interface CardNavProps {
   buttonTextColor?: string;
 }
 
-const CardNav: React.FC<CardNavProps> = ({
+const CardNav = ({
   logo,
   logoAlt = "Logo",
   items,
@@ -40,7 +39,7 @@ const CardNav: React.FC<CardNavProps> = ({
   menuColor,
   buttonBgColor,
   buttonTextColor,
-}) => {
+}: CardNavProps) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -92,12 +91,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
     const tl = gsap.timeline({ paused: true });
 
-    tl.to(navEl, {
-      height: calculateHeight,
-      duration: 0.4,
-      ease,
-    });
-
+    tl.to(navEl, { height: calculateHeight, duration: 0.4, ease });
     tl.to(
       cardsRef.current,
       { y: 0, opacity: 1, duration: 0.4, ease, stagger: 0.08 },
@@ -135,9 +129,7 @@ const CardNav: React.FC<CardNavProps> = ({
       } else {
         tlRef.current.kill();
         const newTl = createTimeline();
-        if (newTl) {
-          tlRef.current = newTl;
-        }
+        if (newTl) tlRef.current = newTl;
       }
     };
 
@@ -220,10 +212,7 @@ const CardNav: React.FC<CardNavProps> = ({
                       }
                     }}
                   >
-                    <GoArrowUpRight
-                      className="nav-card-link-icon"
-                      aria-hidden="true"
-                    />
+                    <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
                     {lnk.label}
                   </a>
                 ))}

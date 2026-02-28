@@ -20,8 +20,7 @@ const Hero = ({ data }: HeroProps) => {
           <HeroActions
             cta={data.cta}
             socials={data.socials}
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            onCtaClick={(section: string) => scrollTo(section as any)}
+            onCtaClick={scrollTo}
           />
         </div>
 

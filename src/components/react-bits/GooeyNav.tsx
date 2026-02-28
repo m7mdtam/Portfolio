@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 interface GooeyNavItem {
   label: string;
@@ -15,11 +15,10 @@ export interface GooeyNavProps {
   timeVariance?: number;
   colors?: number[];
   initialActiveIndex?: number;
-  /** Controlled active index driven by scroll position — no particle animation */
   syncActiveIndex?: number;
 }
 
-const GooeyNav: React.FC<GooeyNavProps> = ({
+const GooeyNav = ({
   items,
   animationTime = 600,
   particleCount = 15,
@@ -29,7 +28,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
   initialActiveIndex = -1,
   syncActiveIndex,
-}) => {
+}: GooeyNavProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLUListElement>(null);
   const filterRef = useRef<HTMLSpanElement>(null);
@@ -37,6 +36,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
+
   const getXY = (
     distance: number,
     pointIndex: number,
@@ -46,6 +46,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
     return [distance * Math.cos(angle), distance * Math.sin(angle)];
   };
+
   const createParticle = (
     i: number,
     t: number,
@@ -62,6 +63,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       rotate: rotate > 0 ? (rotate + r / 20) * 10 : (rotate - r / 20) * 10,
     };
   };
+
   const makeParticles = (element: HTMLElement) => {
     const d: [number, number] = particleDistances;
     const r = particleR;
@@ -92,13 +94,12 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         setTimeout(() => {
           try {
             element.removeChild(particle);
-          } catch {
-            /* empty */
-          }
+          } catch {}
         }, t);
       }, 30);
     }
   };
+
   const updateEffectPosition = (element: HTMLElement) => {
     if (!containerRef.current || !filterRef.current || !textRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
@@ -113,6 +114,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     Object.assign(textRef.current.style, styles);
     textRef.current.innerText = element.innerText;
   };
+
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     index: number,
@@ -136,6 +138,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       makeParticles(filterRef.current);
     }
   };
+
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLAnchorElement>,
     index: number,
@@ -145,14 +148,13 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       const liEl = e.currentTarget.parentElement;
       if (liEl) {
         handleClick(
-          {
-            currentTarget: liEl,
-          } as React.MouseEvent<HTMLAnchorElement>,
+          { currentTarget: liEl } as React.MouseEvent<HTMLAnchorElement>,
           index,
         );
       }
     }
   };
+
   useEffect(() => {
     if (syncActiveIndex === undefined) {
       setActiveIndex(-1);
@@ -161,9 +163,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       return;
     }
     if (syncActiveIndex === activeIndex) return;
-    const li = navRef.current?.querySelectorAll("li")[
-      syncActiveIndex
-    ] as HTMLElement;
+    const li = navRef.current?.querySelectorAll("li")[syncActiveIndex] as HTMLElement;
     if (li) {
       setActiveIndex(syncActiveIndex);
       updateEffectPosition(li);
@@ -174,17 +174,13 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
-    const activeLi = navRef.current.querySelectorAll("li")[
-      activeIndex
-    ] as HTMLElement;
+    const activeLi = navRef.current.querySelectorAll("li")[activeIndex] as HTMLElement;
     if (activeLi) {
       updateEffectPosition(activeLi);
       textRef.current?.classList.add("active");
     }
     const resizeObserver = new ResizeObserver(() => {
-      const currentActiveLi = navRef.current?.querySelectorAll("li")[
-        activeIndex
-      ] as HTMLElement;
+      const currentActiveLi = navRef.current?.querySelectorAll("li")[activeIndex] as HTMLElement;
       if (currentActiveLi) {
         updateEffectPosition(currentActiveLi);
       }
@@ -195,7 +191,6 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 
   return (
     <>
-      {/* This effect is quite difficult to recreate faithfully using Tailwind, so a style tag is a necessary workaround */}
       <style>
         {`
           :root {
@@ -336,15 +331,11 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       </style>
       <div className="relative" ref={containerRef}>
         <nav
-          className="flex relative"
-          style={{ transform: "translate3d(0,0,0.01px)" }}
+          className="flex relative transform-[translate3d(0,0,0.01px)]"
         >
           <ul
             ref={navRef}
-            className="flex gap-8 list-none p-0 px-4 m-0 relative z-3"
-            style={{
-              color: "var(--text-secondary)",
-            }}
+            className="flex gap-8 list-none p-0 px-4 m-0 relative z-3 text-text-secondary"
           >
             {items.map((item, index) => (
               <li

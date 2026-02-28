@@ -144,7 +144,6 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2">
-      {/* Desktop logo */}
       <Button
         variant="ghost"
         onClick={goHome}
@@ -155,15 +154,7 @@ const Navbar = () => {
       </Button>
 
       <div
-        className={`hidden md:block rounded-full px-2 py-1.5 overflow-hidden ${pill}`}
-        style={
-          {
-            "--color-1": "var(--accent-primary)",
-            "--color-2": "var(--accent-hover)",
-            "--color-3": "var(--background-muted)",
-            "--color-4": "var(--text-secondary)",
-          } as React.CSSProperties
-        }
+        className={`hidden md:block rounded-full px-2 py-1.5 overflow-hidden [--color-1:var(--accent-primary)] [--color-2:var(--accent-hover)] [--color-3:var(--background-muted)] [--color-4:var(--text-secondary)] ${pill}`}
       >
         <GooeyNav
           items={gooeyItems}

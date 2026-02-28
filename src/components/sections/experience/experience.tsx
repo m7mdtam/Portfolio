@@ -1,17 +1,13 @@
 import { useScroll } from "@/contexts/scroll-context";
 import Experience from "@/components/experience/experience";
-import { experienceData } from "@/data/experienceData";
+import { experienceData } from "@/data/experience-data";
 
 const ExperienceSection = () => {
   const { register } = useScroll();
 
   return (
     <div ref={register("experience")}>
-      <Experience
-        tag={experienceData.tag}
-        title={experienceData.title}
-        items={experienceData.items}
-      />
+      <Experience {...experienceData} />
     </div>
   );
 };

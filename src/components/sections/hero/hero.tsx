@@ -1,4 +1,4 @@
-import { heroData } from "@/data/heroData";
+import { heroData } from "@/data/hero-data";
 import { useScroll } from "@/contexts/scroll-context";
 import Hero from "@/components/hero/hero";
 
