@@ -5,7 +5,7 @@ import About from "@/components/sections/about/about";
 import Skills from "@/components/sections/skills/skills";
 import Experience from "@/components/sections/experience/experience";
 import Projects from "@/components/sections/projects/projects";
-import Contact from "@/components/sections/contact/contact";
+import ContactSection from "@/components/sections/contact/contact";
 import { ScrollProvider } from "@/contexts/scroll-context";
 
 const LandingPage = () => {
@@ -28,7 +28,7 @@ const LandingPage = () => {
         <Skills />
         <Experience />
         <Projects />
-        <Contact />
+        <ContactSection />
       </div>
     </ScrollProvider>
   );

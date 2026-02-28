@@ -7,14 +7,14 @@ const lineAnim = {
   initial: { scaleY: 0 },
   whileInView: { scaleY: 1 },
   viewport: { once: true } as const,
-  transition: { duration: 1.6, ease: "easeOut" },
+  transition: { duration: 1.6 },
 };
 
 const dotAnim = (delay: number) => ({
   initial: { scale: 0 },
   whileInView: { scale: 1 },
   viewport: { once: true } as const,
-  transition: { delay, duration: 0.3, ease: [0.175, 0.885, 0.32, 1.275] },
+  transition: { delay, duration: 0.3 },
 });
 
 const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (

@@ -1,9 +1,20 @@
 import { useScroll } from "@/contexts/scroll-context";
+import Projects from "@/components/projects/Projects";
+import { projectsData } from "@/data/projectsData";
 
-const Projects = () => {
+const ProjectsSection = () => {
   const { register } = useScroll();
 
-  return <div ref={register("projects")} className="min-h-screen w-full" />;
+  return (
+    <div ref={register("projects")}>
+      <Projects
+        tag={projectsData.tag}
+        title={projectsData.title}
+        subtitle={projectsData.subtitle}
+        items={projectsData.items}
+      />
+    </div>
+  );
 };
 
-export default Projects;
+export default ProjectsSection;
