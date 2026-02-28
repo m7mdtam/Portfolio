@@ -27,7 +27,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   particleR = 100,
   timeVariance = 300,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
-  initialActiveIndex = 0,
+  initialActiveIndex = -1,
   syncActiveIndex,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -154,14 +154,22 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     }
   };
   useEffect(() => {
-    if (syncActiveIndex === undefined || syncActiveIndex === activeIndex) return;
-    const li = navRef.current?.querySelectorAll("li")[syncActiveIndex] as HTMLElement;
+    if (syncActiveIndex === undefined) {
+      setActiveIndex(-1);
+      textRef.current?.classList.remove("active");
+      filterRef.current?.classList.remove("active");
+      return;
+    }
+    if (syncActiveIndex === activeIndex) return;
+    const li = navRef.current?.querySelectorAll("li")[
+      syncActiveIndex
+    ] as HTMLElement;
     if (li) {
       setActiveIndex(syncActiveIndex);
       updateEffectPosition(li);
       textRef.current?.classList.add("active");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [syncActiveIndex]);
 
   useEffect(() => {
@@ -335,7 +343,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             ref={navRef}
             className="flex gap-8 list-none p-0 px-4 m-0 relative z-3"
             style={{
-              color: "white",
+              color: "var(--text-secondary)",
             }}
           >
             {items.map((item, index) => (

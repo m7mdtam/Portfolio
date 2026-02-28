@@ -11,41 +11,45 @@ const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
 
 const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
   return (
-    <ScrollReveal delay={0.75} className="flex flex-col items-center gap-5 md:items-start">
-      {/* CTA Buttons */}
+    <div className="flex flex-col items-center gap-5 md:items-start">
       <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-        {cta.map((item) => (
-          <Button
-            key={item.label}
-            variant={item.variant}
-            size="lg"
-            onClick={() => onCtaClick(item.section)}
-            className="min-w-36 cursor-pointer"
-          >
-            {item.label}
-          </Button>
+        {cta.map((item, i) => (
+          <ScrollReveal key={item.label} delay={0.75 + i * 0.12} direction="up">
+            <Button
+              variant={item.variant}
+              size="lg"
+              onClick={() => onCtaClick(item.section)}
+              className="min-w-36 cursor-pointer"
+            >
+              {item.label}
+            </Button>
+          </ScrollReveal>
         ))}
       </div>
 
-      {/* Social Links */}
       <div className="flex items-center gap-5">
-        {socials.map((social) => {
+        {socials.map((social, i) => {
           const Icon = socialIcons[social.platform];
           return (
-            <a
+            <ScrollReveal
               key={social.platform}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              delay={0.75 + cta.length * 0.12 + i * 0.12}
+              direction="up"
             >
-              <Icon size={22} />
-            </a>
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              >
+                <Icon size={22} />
+              </a>
+            </ScrollReveal>
           );
         })}
       </div>
-    </ScrollReveal>
+    </div>
   );
 };
 

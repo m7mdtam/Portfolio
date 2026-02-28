@@ -18,7 +18,7 @@ const ScrollReveal = ({
   children,
   delay = 0,
   direction = "up",
-  duration = 0.8,
+  duration = 0.7,
   distance = 40,
   className,
 }: Props) => {
@@ -28,34 +28,28 @@ const ScrollReveal = ({
     const el = ref.current;
     if (!el) return;
 
-    // Enter: element comes FROM here
     const enterFrom: gsap.TweenVars = { opacity: 0 };
-    // Leave back: element exits TO here (same axis, opposite side)
     const exitTo: gsap.TweenVars = { opacity: 0 };
 
-    if (direction === "up")    { enterFrom.y = distance;  exitTo.y = -distance; }
-    if (direction === "down")  { enterFrom.y = -distance; exitTo.y = distance;  }
-    if (direction === "left")  { enterFrom.x = distance;  exitTo.x = -distance; }
-    if (direction === "right") { enterFrom.x = -distance; exitTo.x = distance;  }
+    if (direction === "up")    { enterFrom.y =  distance; exitTo.y = -distance; }
+    if (direction === "down")  { enterFrom.y = -distance; exitTo.y =  distance; }
+    if (direction === "left")  { enterFrom.x =  distance; exitTo.x = -distance; }
+    if (direction === "right") { enterFrom.x = -distance; exitTo.x =  distance; }
 
     const ctx = gsap.context(() => {
-      // Start hidden
       gsap.set(el, enterFrom);
 
       ScrollTrigger.create({
         trigger: el,
-        start: "top 75%",
+        start: "top 88%",
         onEnter: () => {
-          // Scroll down → slide in from below
-          gsap.to(el, { opacity: 1, y: 0, x: 0, duration, delay, ease: "power3.out" });
+          gsap.fromTo(el, { ...enterFrom }, { opacity: 1, y: 0, x: 0, duration, delay, ease: "power3.out", overwrite: "auto" });
         },
         onLeaveBack: () => {
-          // Scroll up past trigger → exit in the SAME direction (upward)
-          gsap.to(el, { ...exitTo, duration: duration * 0.6, ease: "power3.in" });
+          gsap.to(el, { ...exitTo, duration: duration * 0.55, ease: "power3.in", overwrite: "auto" });
         },
         onEnterBack: () => {
-          // Scroll back down → re-enter from below again
-          gsap.fromTo(el, enterFrom, { opacity: 1, y: 0, x: 0, duration, ease: "power3.out" });
+          gsap.fromTo(el, { ...enterFrom }, { opacity: 1, y: 0, x: 0, duration, ease: "power3.out", overwrite: "auto" });
         },
       });
     });
