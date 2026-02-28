@@ -1,9 +1,19 @@
 import { useScroll } from "@/contexts/scroll-context";
+import Experience from "@/components/experience/Experience";
+import { experienceData } from "@/data/experienceData";
 
-const Experience = () => {
+const ExperienceSection = () => {
   const { register } = useScroll();
 
-  return <div ref={register("experience")} className="min-h-screen w-full" />;
+  return (
+    <div ref={register("experience")}>
+      <Experience
+        tag={experienceData.tag}
+        title={experienceData.title}
+        items={experienceData.items}
+      />
+    </div>
+  );
 };
 
-export default Experience;
+export default ExperienceSection;
