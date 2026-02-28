@@ -1,0 +1,39 @@
+@import './colors.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background-base);
+  --color-background-surface: var(--background-surface);
+  --color-background-muted: var(--background-muted);
+
+  --color-foreground: var(--text-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-primary: var(--accent-primary);
+  --color-primary-foreground: var(--background-base);
+  --color-accent: var(--accent-muted);
+  --color-accent-foreground: var(--accent-primary);
+
+  --color-card: var(--background-surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--background-surface);
+  --color-popover-foreground: var(--text-primary);
+  --color-secondary: var(--background-muted);
+  --color-secondary-foreground: var(--text-primary);
+  --color-muted: var(--background-muted);
+  --color-muted-foreground: var(--text-muted);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-border: var(--text-border);
+  --color-input: var(--text-border);
+  --color-ring: var(--accent-primary);
+}
