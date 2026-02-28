@@ -1,5 +1,5 @@
+import About from "@/components/about/about";
 import { useScroll } from "@/contexts/scroll-context";
-import About from "@/components/about/About";
 import { aboutData } from "@/data/aboutData";
 
 const AboutSection = () => {

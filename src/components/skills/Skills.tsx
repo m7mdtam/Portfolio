@@ -1,5 +1,5 @@
-import ScrollReveal from "@/components/ScrollReveal";
-import SkillCategory from "./SkillCategory";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import SkillCategory from "./skill-category";
 import type { SkillsProps } from "@/types/skills.types";
 
 const Skills = ({ tag, title, categories }: SkillsProps) => (

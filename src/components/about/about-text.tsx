@@ -1,10 +1,12 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
 import type { AboutTextProps } from "@/types/about.types";
 
 const AboutText = ({ tag, heading, bio }: AboutTextProps) => (
   <div className="flex flex-col gap-6 max-w-3xl">
     <ScrollReveal>
-      <span className="text-sm font-mono uppercase tracking-widest text-primary">{tag}</span>
+      <span className="text-sm font-mono uppercase tracking-widest text-primary">
+        {tag}
+      </span>
     </ScrollReveal>
 
     <ScrollReveal delay={0.1}>
@@ -17,7 +19,9 @@ const AboutText = ({ tag, heading, bio }: AboutTextProps) => (
 
     {bio.map((paragraph, i) => (
       <ScrollReveal key={i} delay={0.25 + i * 0.1}>
-        <p className="text-body leading-relaxed text-text-secondary">{paragraph}</p>
+        <p className="text-body leading-relaxed text-text-secondary">
+          {paragraph}
+        </p>
       </ScrollReveal>
     ))}
   </div>

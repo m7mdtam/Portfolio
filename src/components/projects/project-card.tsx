@@ -1,7 +1,7 @@
 import { ExternalLink, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ScrollReveal from "@/components/ScrollReveal";
-import ProjectTag from "./ProjectTag";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import ProjectTag from "./project-tag";
 import type { ProjectCardProps, ProjectStatus } from "@/types/projects.types";
 
 const statusStyles: Record<ProjectStatus, string> = {
@@ -18,7 +18,9 @@ const CardContent = ({ item, index }: ProjectCardProps) => {
       {/* Top accent bar */}
       <div className="h-0.5 w-full bg-primary transition-all duration-300 group-hover:h-1" />
 
-      <div className={`flex flex-col flex-1 ${item.featured ? "md:flex-row" : ""}`}>
+      <div
+        className={`flex flex-col flex-1 ${item.featured ? "md:flex-row" : ""}`}
+      >
         {/* Main content */}
         <div className="flex flex-col flex-1 p-6 gap-5">
           {/* Header row */}
@@ -72,12 +74,12 @@ const CardContent = ({ item, index }: ProjectCardProps) => {
           {/* Action buttons */}
           <div className="flex items-center gap-3 mt-auto pt-2">
             {item.liveUrl ? (
-              <Button
-                asChild
-                size="sm"
-                className="gap-2 cursor-pointer"
-              >
-                <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+              <Button asChild size="sm" className="gap-2 cursor-pointer">
+                <a
+                  href={item.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="size-3.5" />
                   View Live
                 </a>

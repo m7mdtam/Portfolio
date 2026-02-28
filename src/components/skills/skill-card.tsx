@@ -1,5 +1,5 @@
-import ScrollReveal from "@/components/ScrollReveal";
-import { skillIcons } from "./skillIcons";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import { skillIcons } from "../skills/skill-icons";
 import type { SkillCardProps } from "@/types/skills.types";
 
 const SkillCard = ({ name, delay = 0 }: SkillCardProps) => {

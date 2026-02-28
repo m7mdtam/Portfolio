@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { FaCheck } from "react-icons/fa";
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
 import type { ContactFormProps } from "@/types/contact.types";
 
 const schema = z.object({

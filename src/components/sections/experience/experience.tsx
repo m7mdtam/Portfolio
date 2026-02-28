@@ -1,5 +1,5 @@
 import { useScroll } from "@/contexts/scroll-context";
-import Experience from "@/components/experience/Experience";
+import Experience from "@/components/experience/experience";
 import { experienceData } from "@/data/experienceData";
 
 const ExperienceSection = () => {

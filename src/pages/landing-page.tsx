@@ -1,4 +1,4 @@
-import Squares from "@/components/Squares";
+import Squares from "@/components/react-bits/Squares";
 import Navbar from "@/components/common/navbar/navbar";
 import Hero from "@/components/sections/hero/hero";
 import About from "@/components/sections/about/about";

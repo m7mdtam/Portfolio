@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import ScrollReveal from "@/components/ScrollReveal";
-import ExperienceCard from "./ExperienceCard";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import ExperienceCard from "./experience-card";
 import type { ExperienceTimelineProps } from "@/types/experience.types";
 
 const lineAnim = {
@@ -51,11 +51,9 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
       </div>
     </div>
 
-    {/* ── DESKTOP (>= md) — zigzag ── */}
     <div className="hidden md:block relative">
       {/* Background line */}
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
-      {/* Animated primary line */}
       <motion.div
         {...lineAnim}
         className="absolute left-1/2 top-0 bottom-0 w-px bg-primary -translate-x-1/2 origin-top"
@@ -67,12 +65,10 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
 
           return (
             <div key={i} className="grid grid-cols-[1fr_4rem_1fr] items-start">
-              {/* Left slot */}
               <div className="relative pr-8">
                 {isLeft && (
                   <>
-                    {/* Connector: left card right-edge → dot center */}
-                    <div className="absolute -right-8 top-[1.625rem] w-8 h-px bg-primary/40" />
+                    <div className="absolute -right-8 top-6.5 w-8 h-px bg-primary/40" />
                     <ScrollReveal direction="right" delay={0.2 + i * 0.1}>
                       <ExperienceCard item={item} />
                     </ScrollReveal>
@@ -80,7 +76,6 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
                 )}
               </div>
 
-              {/* Center: dot */}
               <div className="flex justify-center pt-5 relative z-10">
                 <motion.div
                   {...dotAnim(0.5 + i * 0.15)}
@@ -88,12 +83,10 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
                 />
               </div>
 
-              {/* Right slot */}
               <div className="relative pl-8">
                 {!isLeft && (
                   <>
-                    {/* Connector: dot center → right card left-edge */}
-                    <div className="absolute -left-8 top-[1.625rem] w-8 h-px bg-primary/40" />
+                    <div className="absolute -left-8 top-6.5 w-8 h-px bg-primary/40" />
                     <ScrollReveal direction="left" delay={0.2 + i * 0.1}>
                       <ExperienceCard item={item} />
                     </ScrollReveal>

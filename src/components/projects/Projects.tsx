@@ -1,5 +1,5 @@
-import ScrollReveal from "@/components/ScrollReveal";
-import ProjectCard from "./ProjectCard";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import ProjectCard from "./project-card";
 import type { ProjectsProps } from "@/types/projects.types";
 
 const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
@@ -40,12 +40,7 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
         {/* Cards grid */}
         <div className="flex flex-col gap-6">
           {/* Featured card — always full width */}
-          {featured && (
-            <ProjectCard
-              item={featured}
-              index={0}
-            />
-          )}
+          {featured && <ProjectCard item={featured} index={0} />}
 
           {/* Remaining cards — 2-column grid on tablet+ */}
           {rest.length > 0 && (

@@ -1,5 +1,5 @@
-import ScrollReveal from "@/components/ScrollReveal";
-import ExperienceTimeline from "./ExperienceTimeline";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
+import ExperienceTimeline from "./experience-timeline";
 import type { ExperienceProps } from "@/types/experience.types";
 
 const Experience = ({ tag, title, items }: ExperienceProps) => (

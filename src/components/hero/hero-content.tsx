@@ -1,5 +1,5 @@
-import BlurText from "@/components/BlurText";
-import ScrollReveal from "@/components/ScrollReveal";
+import BlurText from "@/components/react-bits/BlurText";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
 import type { HeroContentProps } from "@/types/hero.types";
 
 const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (
@@ -18,11 +18,15 @@ const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (
     </ScrollReveal>
 
     <ScrollReveal delay={0.45}>
-      <p className="text-body text-muted-foreground tracking-wide">{subtitle}</p>
+      <p className="text-body text-muted-foreground tracking-wide">
+        {subtitle}
+      </p>
     </ScrollReveal>
 
     <ScrollReveal delay={0.6}>
-      <p className="text-body text-text-secondary max-w-lg leading-relaxed">{intro}</p>
+      <p className="text-body text-text-secondary max-w-lg leading-relaxed">
+        {intro}
+      </p>
     </ScrollReveal>
   </div>
 );

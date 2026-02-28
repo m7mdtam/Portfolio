@@ -1,8 +1,12 @@
-import ScrollReveal from "@/components/ScrollReveal";
-import SkillCard from "./SkillCard";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
 import type { SkillCategoryProps } from "@/types/skills.types";
+import SkillCard from "./skill-card";
 
-const SkillCategory = ({ label, skills, categoryDelay = 0 }: SkillCategoryProps) => (
+const SkillCategory = ({
+  label,
+  skills,
+  categoryDelay = 0,
+}: SkillCategoryProps) => (
   <div className="flex flex-col gap-5">
     <ScrollReveal delay={categoryDelay} direction="up">
       <div className="flex items-center gap-3">
@@ -15,7 +19,11 @@ const SkillCategory = ({ label, skills, categoryDelay = 0 }: SkillCategoryProps)
 
     <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2.5">
       {skills.map((skill, i) => (
-        <SkillCard key={skill} name={skill} delay={categoryDelay + 0.08 + i * 0.05} />
+        <SkillCard
+          key={skill}
+          name={skill}
+          delay={categoryDelay + 0.08 + i * 0.05}
+        />
       ))}
     </div>
   </div>

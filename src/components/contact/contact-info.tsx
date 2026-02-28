@@ -1,6 +1,6 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal from "@/components/react-bits/ScrollReveal";
 import type { ContactInfoProps } from "@/types/contact.types";
-import ContactInfoCard from "./ContactInfoCard";
+import ContactInfoCard from "./contact-info-card";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import type { ComponentType } from "react";
 

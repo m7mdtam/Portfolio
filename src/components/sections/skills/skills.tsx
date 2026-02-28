@@ -1,5 +1,5 @@
 import { useScroll } from "@/contexts/scroll-context";
-import Skills from "@/components/skills/Skills";
+import Skills from "@/components/skills/skills";
 import { skillsData } from "@/data/skillsData";
 
 const SkillsSection = () => {
