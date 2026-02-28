@@ -32,7 +32,7 @@ const LandingPage = () => {
 
   return (
     <ScrollProvider>
-      <div className="fixed inset-0 z-0 opacity-30 max-w-screen overflow-hidden">
+      <div className="fixed inset-0 z-0 opacity-30 pointer-events-none overflow-hidden">
         <Squares
           direction="diagonal"
           speed={0.5}
@@ -41,7 +41,7 @@ const LandingPage = () => {
         />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 w-full">
         <Navbar />
         <HeroSection />
         <AboutSection />

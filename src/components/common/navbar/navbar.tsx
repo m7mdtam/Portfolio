@@ -187,7 +187,7 @@ const Navbar = () => {
       </Button>
 
       <div
-        className={`relative md:hidden flex items-center justify-between gap-6 rounded-full px-5 py-2 w-[50vw] ${pill}`}
+        className={`relative md:hidden flex items-center justify-between gap-2 rounded-full px-3 py-2 max-w-[calc(100vw-20px)] ${pill}`}
         ref={dropdownRef}
       >
         <Button
