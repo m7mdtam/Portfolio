@@ -18,12 +18,8 @@ const SkillCategory = ({
     </ScrollReveal>
 
     <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2.5">
-      {skills.map((skill, i) => (
-        <SkillCard
-          key={skill}
-          name={skill}
-          delay={categoryDelay + 0.08 + i * 0.05}
-        />
+      {skills.map((skill) => (
+        <SkillCard key={skill} name={skill} />
       ))}
     </div>
   </div>

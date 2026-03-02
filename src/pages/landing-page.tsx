@@ -32,7 +32,9 @@ const LandingPage = () => {
 
   return (
     <ScrollProvider>
-      <div className="fixed inset-0 z-0 opacity-30 pointer-events-none overflow-hidden">
+      <div
+        className={`fixed inset-0 z-0 pointer-events-none overflow-hidden ${isDark ? "opacity-90" : "opacity-50"}`}
+      >
         <Squares
           direction="diagonal"
           speed={0.5}

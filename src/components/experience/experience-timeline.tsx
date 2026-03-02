@@ -37,7 +37,7 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
             </div>
 
             <div className="flex-1 min-w-0">
-              <ScrollReveal direction="up" delay={0.1 + i * 0.08}>
+              <ScrollReveal direction="up" delay={0}>
                 <ExperienceCard item={item} />
               </ScrollReveal>
             </div>
@@ -63,7 +63,7 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
                 {isLeft && (
                   <>
                     <div className="absolute -right-8 top-6.5 w-8 h-px bg-primary/40" />
-                    <ScrollReveal direction="right" delay={0.2 + i * 0.1}>
+                    <ScrollReveal direction="right" delay={0}>
                       <ExperienceCard item={item} />
                     </ScrollReveal>
                   </>
@@ -81,7 +81,7 @@ const ExperienceTimeline = ({ items }: ExperienceTimelineProps) => (
                 {!isLeft && (
                   <>
                     <div className="absolute -left-8 top-6.5 w-8 h-px bg-primary/40" />
-                    <ScrollReveal direction="left" delay={0.2 + i * 0.1}>
+                    <ScrollReveal direction="left" delay={0}>
                       <ExperienceCard item={item} />
                     </ScrollReveal>
                   </>

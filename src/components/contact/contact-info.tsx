@@ -28,18 +28,18 @@ const ContactInfo = ({ intro, infoItems, socialLinks }: ContactInfoProps) => (
     </ScrollReveal>
 
     <div className="flex flex-col gap-4">
-      {infoItems.map((item, i) => (
-        <ScrollReveal key={item.label} delay={0.3 + i * 0.1} direction="up">
+      {infoItems.map((item) => (
+        <ScrollReveal key={item.label} delay={0} direction="up">
           <ContactInfoCard item={item} />
         </ScrollReveal>
       ))}
     </div>
 
     <div className="flex items-center gap-4 mt-8">
-      {socialLinks.map((link, i) => {
+      {socialLinks.map((link) => {
         const Icon = socialIconMap[link.icon as keyof typeof socialIconMap];
         return (
-          <ScrollReveal key={link.href} delay={0.7 + i * 0.1} direction="up">
+          <ScrollReveal key={link.href} delay={0} direction="up">
             <a
               href={link.href}
               target="_blank"
