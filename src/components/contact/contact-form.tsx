@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import type { ContactFormProps } from "@/types/contact.types";
+import { toast } from "sonner";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -27,15 +28,39 @@ const ContactForm = ({ labels }: ContactFormProps) => {
   const [success, setSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit = async (_data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     setSubmitError(false);
+
     try {
-      await new Promise((r) => setTimeout(r, 1000));
+      const response = await fetch(
+        `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/Contacts`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fields: {
+              Name: data.name,
+              Email: data.email,
+              Message: data.message,
+            },
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+      toast.success("Your message has been sent successfully!");
+
       setSuccess(true);
       reset();
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (err) {
+    } catch (error) {
+      toast.error("Failed to send your message. Please try again.");
+
       setSubmitError(true);
     }
   };
