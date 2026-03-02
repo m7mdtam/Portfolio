@@ -20,11 +20,12 @@ const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
 
 const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
   return (
-    <div className="flex flex-col items-center gap-5 md:items-start">
-      <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-        {cta.map((item, i) => (
-          <ScrollReveal key={item.label} delay={0.75 + i * 0.12} direction="up">
+    <ScrollReveal delay={0.6}>
+      <div className="flex flex-col items-center gap-5 md:items-start">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+          {cta.map((item) => (
             <Button
+              key={item.label}
               variant={item.variant}
               size="lg"
               onClick={() => onCtaClick(item.section)}
@@ -32,20 +33,15 @@ const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
             >
               {item.label}
             </Button>
-          </ScrollReveal>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="flex items-center gap-5">
-        {socials.map((social, i) => {
-          const Icon = socialIcons[social.platform];
-          return (
-            <ScrollReveal
-              key={social.platform}
-              delay={0.75 + cta.length * 0.12 + i * 0.12}
-              direction="up"
-            >
+        <div className="flex items-center gap-5">
+          {socials.map((social) => {
+            const Icon = socialIcons[social.platform];
+            return (
               <a
+                key={social.platform}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -54,11 +50,11 @@ const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
               >
                 <Icon size={22} />
               </a>
-            </ScrollReveal>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </ScrollReveal>
   );
 };
 

@@ -77,8 +77,8 @@ const ContactForm = ({ labels }: ContactFormProps) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-      <ScrollReveal delay={0.2}>
+    <ScrollReveal>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <div className="flex flex-col">
           <label className="text-xs font-bold text-foreground mb-1">
             {labels.nameLabel}
@@ -94,9 +94,7 @@ const ContactForm = ({ labels }: ContactFormProps) => {
             </span>
           )}
         </div>
-      </ScrollReveal>
 
-      <ScrollReveal delay={0.4}>
         <div className="flex flex-col">
           <label className="text-xs font-bold text-foreground mb-1">
             {labels.emailLabel}
@@ -113,9 +111,7 @@ const ContactForm = ({ labels }: ContactFormProps) => {
             </span>
           )}
         </div>
-      </ScrollReveal>
 
-      <ScrollReveal delay={0.6}>
         <div className="flex flex-col">
           <label className="text-xs font-bold text-foreground mb-1">
             {labels.messageLabel}
@@ -132,21 +128,21 @@ const ContactForm = ({ labels }: ContactFormProps) => {
             </span>
           )}
         </div>
-      </ScrollReveal>
 
-      {submitError && (
-        <div className="text-red-500 text-sm">{labels.errorMessage}</div>
-      )}
+        {submitError && (
+          <div className="text-red-500 text-sm">{labels.errorMessage}</div>
+        )}
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full rounded-none hover:brightness-110 h-auto py-3"
-      >
-        {isSubmitting && <Loader2 className="size-5 animate-spin" />}
-        {isSubmitting ? labels.sendingLabel : labels.submitLabel}
-      </Button>
-    </form>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full rounded-none hover:brightness-110 h-auto py-3"
+        >
+          {isSubmitting && <Loader2 className="size-5 animate-spin" />}
+          {isSubmitting ? labels.sendingLabel : labels.submitLabel}
+        </Button>
+      </form>
+    </ScrollReveal>
   );
 };
 

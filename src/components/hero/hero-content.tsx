@@ -13,19 +13,15 @@ const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (
     />
 
     <ScrollReveal delay={0.3}>
-      <p className="text-h3 font-title font-semibold text-primary">{title}</p>
-    </ScrollReveal>
-
-    <ScrollReveal delay={0.45}>
-      <p className="text-body font-title text-text-secondary tracking-wide">
-        {subtitle}
-      </p>
-    </ScrollReveal>
-
-    <ScrollReveal delay={0.6}>
-      <p className="text-body text-text-secondary max-w-lg leading-relaxed">
-        {intro}
-      </p>
+      <div>
+        <p className="text-h3 font-title font-semibold text-primary">{title}</p>
+        <p className="text-body font-title text-text-secondary tracking-wide">
+          {subtitle}
+        </p>
+        <p className="text-body text-text-secondary max-w-lg leading-relaxed">
+          {intro}
+        </p>
+      </div>
     </ScrollReveal>
   </div>
 );

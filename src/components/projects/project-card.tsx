@@ -12,11 +12,9 @@ const statusStyles: Record<ProjectStatus, string> = {
   Completed: "border-border bg-card text-text-secondary",
 };
 
-const ProjectCard = ({ item, index }: ProjectCardProps) => {
-  const tagBaseDelay = 0.15 + index * 0.15;
-
+const ProjectCard = ({ item }: ProjectCardProps) => {
   return (
-    <ScrollReveal direction="up" delay={0.1 + index * 0.15}>
+    <ScrollReveal direction="up" delay={0}>
       <div className="relative border border-border bg-card/60 overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.12)] group h-full flex flex-col">
         <div className="h-0.5 w-full bg-primary transition-all duration-300 group-hover:h-1" />
 
@@ -60,12 +58,8 @@ const ProjectCard = ({ item, index }: ProjectCardProps) => {
             </div>
 
             <div className="flex flex-wrap gap-1.5">
-              {item.tech.map((tag, i) => (
-                <ProjectTag
-                  key={tag}
-                  label={tag}
-                  delay={tagBaseDelay + i * 0.04}
-                />
+              {item.tech.map((tag) => (
+                <ProjectTag key={tag} label={tag} />
               ))}
             </div>
 
