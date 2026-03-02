@@ -18,6 +18,9 @@
   --status-warning-bg: oklch(91% 0.08 68);
   --status-neutral: oklch(45% 0.08 265);
   --status-neutral-bg: oklch(75% 0.02 265);
+
+  --sonner-bg: #000000;
+  --sonner-text: #ffffff;
 }
 
 .dark {
@@ -40,4 +43,7 @@
   --status-warning-bg: oklch(22% 0.1 68);
   --status-neutral: oklch(65% 0.08 265);
   --status-neutral-bg: oklch(18% 0.04 265);
+
+  --sonner-bg: #ffffff;
+  --sonner-text: #000000;
 }
