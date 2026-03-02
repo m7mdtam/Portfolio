@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { FaCheck } from "react-icons/fa";
-import { Loader2 } from "lucide-react";
+import { Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import type { ContactFormProps } from "@/types/contact.types";
@@ -25,7 +24,6 @@ const ContactForm = ({ labels }: ContactFormProps) => {
     reset,
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const [success, setSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
   const onSubmit = async (data: FormData) => {
@@ -53,28 +51,15 @@ const ContactForm = ({ labels }: ContactFormProps) => {
       if (!response.ok) {
         throw new Error("Failed to send message");
       }
-      toast.success("Your message has been sent successfully!");
 
-      setSuccess(true);
+      toast.success("Your message has been sent successfully!");
       reset();
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error("Failed to send your message. Please try again.");
-
       setSubmitError(true);
     }
   };
-
-  if (success) {
-    return (
-      <div className="flex flex-col items-center justify-center p-8 bg-background-surface border border-border">
-        <FaCheck className="text-primary text-4xl mb-4" />
-        <p className="text-lg text-foreground text-center">
-          {labels.successMessage}
-        </p>
-      </div>
-    );
-  }
 
   return (
     <ScrollReveal>
@@ -136,9 +121,9 @@ const ContactForm = ({ labels }: ContactFormProps) => {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-none hover:brightness-110 h-auto py-3"
+          className="w-full cursor-pointer rounded-none hover:brightness-110 h-auto py-3"
         >
-          {isSubmitting && <Loader2 className="size-5 animate-spin" />}
+          {isSubmitting && <Loader className="size-5 animate-spin" />}
           {isSubmitting ? labels.sendingLabel : labels.submitLabel}
         </Button>
       </form>
