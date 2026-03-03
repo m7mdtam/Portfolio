@@ -5,6 +5,7 @@ export interface ProjectItem {
   type: string;
   status: ProjectStatus;
   liveUrl?: string;
+  githubUrl?: string;
   ownershipNote?: string;
   description: string;
   role: string;

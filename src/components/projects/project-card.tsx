@@ -1,4 +1,4 @@
-import { ExternalLink, Lock } from "lucide-react";
+import { ExternalLink, Lock, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import ProjectTag from "./project-tag";
@@ -77,15 +77,28 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
                 </Button>
               )}
 
-              <Button
-                variant="outline"
-                size="sm"
-                disabled
-                className="gap-2 opacity-50 cursor-not-allowed"
-              >
-                <Lock className="size-3.5" />
-                Private Repo
-              </Button>
+              {item.githubUrl ? (
+                <Button asChild variant="outline" size="sm" className="gap-2 cursor-pointer">
+                  <a
+                    href={item.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="size-3.5" />
+                    GitHub
+                  </a>
+                </Button>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled
+                  className="gap-2 opacity-50 cursor-not-allowed"
+                >
+                  <Lock className="size-3.5" />
+                  Private Repo
+                </Button>
+              )}
             </div>
           </div>
 
