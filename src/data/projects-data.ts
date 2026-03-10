@@ -2,11 +2,11 @@ import type { ProjectsData } from "@/types/projects.types";
 import devboardPreview from "@/assets/images/devboard_preview_column.png";
 import shelfiePreview1 from "@/assets/images/s1.png";
 import shelfiePreview2 from "@/assets/images/s2.png";
-import shelfiePreview3 from "@/assets/images/s3.PNG";
-import shelfiePreview4 from "@/assets/images/s4.PNG";
-import shelfiePreview5 from "@/assets/images/s5.PNG";
-import shelfiePreview6 from "@/assets/images/s6.PNG";
-import shelfiePreview7 from "@/assets/images/s7.PNG";
+import shelfiePreview3 from "@/assets/images/s3.png";
+import shelfiePreview4 from "@/assets/images/s4.png";
+import shelfiePreview5 from "@/assets/images/s5.png";
+import shelfiePreview6 from "@/assets/images/s6.png";
+import shelfiePreview7 from "@/assets/images/s7.png";
 
 export const projectsData: ProjectsData = {
   tag: "What I've built",
