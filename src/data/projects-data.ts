@@ -1,12 +1,6 @@
 import type { ProjectsData } from "@/types/projects.types";
 import devboardPreview from "@/assets/images/devboard_preview_column.png";
-import shelfiePreview1 from "@/assets/images/s1.png";
-import shelfiePreview2 from "@/assets/images/s2.png";
-import shelfiePreview3 from "@/assets/images/s3.png";
-import shelfiePreview4 from "@/assets/images/s4.png";
-import shelfiePreview5 from "@/assets/images/s5.png";
-import shelfiePreview6 from "@/assets/images/s6.png";
-import shelfiePreview7 from "@/assets/images/s7.png";
+import shelfiePreview from "@/assets/images/22.png";
 
 export const projectsData: ProjectsData = {
   tag: "What I've built",
@@ -45,15 +39,7 @@ export const projectsData: ProjectsData = {
         "Husky",
       ],
       featured: true,
-      previewImage: [
-        shelfiePreview1,
-        shelfiePreview2,
-        shelfiePreview3,
-        shelfiePreview4,
-        shelfiePreview5,
-        shelfiePreview6,
-        shelfiePreview7,
-      ],
+      previewImage: shelfiePreview,
     },
     {
       name: "DevBoard",
