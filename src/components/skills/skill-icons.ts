@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
-import { FaReact, FaHtml5, FaCss3Alt, FaGit } from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt, FaGit, FaGithub } from "react-icons/fa";
+import { ClaudeIcon } from "./claude-icon";
 import {
   SiTypescript,
   SiJavascript,
@@ -15,6 +16,9 @@ import {
   SiAxios,
   SiRadixui,
   SiPayloadcms,
+  SiReact,
+  SiAirtable,
+  SiFormik,
 } from "react-icons/si";
 import {
   TbRoute,
@@ -38,6 +42,8 @@ import {
   TbNetwork,
   TbCashRegister,
   TbWorld,
+  TbMail,
+  TbShieldCheck,
 } from "react-icons/tb";
 
 export const skillIcons: Record<string, IconType> = {
@@ -56,16 +62,26 @@ export const skillIcons: Record<string, IconType> = {
   "dnd-kit": TbHandGrab,
   Zustand: TbAtom2,
   Zod: SiZod,
+  Yup: TbShieldCheck,
   i18n: TbLanguage,
   Motion: SiFramer,
   "React Bits": TbComponents,
   "Shadcn UI": TbLayoutDashboard,
   "Radix UI": SiRadixui,
   "React Hook Form": TbClipboardList,
+  Formik: SiFormik,
   "date-fns": TbCalendar,
   Axios: SiAxios,
+  Resend: TbMail,
+  Airtable: SiAirtable,
+
+  "React Native": SiReact,
+  NativeWind: SiTailwindcss,
+  "Reusable React Native": TbComponents,
 
   "Payload CMS": SiPayloadcms,
+  "Neon DB (PostgreSQL)": TbDatabase,
+  MongoDB: TbDatabase,
 
   "RESTful API": TbApi,
   "async/await": TbCode,
@@ -81,6 +97,9 @@ export const skillIcons: Record<string, IconType> = {
   Vite: SiVite,
   pnpm: SiPnpm,
   Bun: SiBun,
+
+  "Claude AI": ClaudeIcon as IconType,
+  "GitHub Copilot": FaGithub,
 
   "Flutter & Dart": SiFlutter,
   "POS Systems": TbCashRegister,

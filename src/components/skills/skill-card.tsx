@@ -1,9 +1,15 @@
 import { ScrollReveal } from "@/components/react-bits";
 import { skillIcons } from "./skill-icons";
+import { skillColors } from "./skill-colors";
 import type { SkillCardProps } from "@/types/skills.types";
+
+// Icons that have their color built-in and shouldn't be overridden
+const ICONS_WITH_BUILT_IN_COLORS = new Set(["Claude AI"]);
 
 const SkillCard = ({ name }: SkillCardProps) => {
   const Icon = skillIcons[name];
+  const color = skillColors[name] || "#10b981"; // Green fallback
+  const hasBuiltInColor = ICONS_WITH_BUILT_IN_COLORS.has(name);
 
   return (
     <ScrollReveal direction="up" delay={0}>
@@ -11,7 +17,10 @@ const SkillCard = ({ name }: SkillCardProps) => {
         {Icon && (
           <Icon
             size={36}
-            className="text-primary transition-colors duration-200 group-hover:text-background shrink-0"
+            className={`transition-colors duration-200 shrink-0 ${
+              hasBuiltInColor ? "" : "group-hover:text-background"
+            }`}
+            style={hasBuiltInColor ? {} : { color }}
           />
         )}
         <span className="text-[0.75rem] font-title font-semibold text-center leading-tight text-foreground transition-colors duration-200 group-hover:text-background w-full px-1">

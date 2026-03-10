@@ -1,5 +1,12 @@
 import { ExternalLink, Lock, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import { ScrollReveal } from "@/components/react-bits";
 import ProjectTag from "./project-tag";
 import type { ProjectCardProps, ProjectStatus } from "@/types/projects.types";
@@ -13,6 +20,11 @@ const statusStyles: Record<ProjectStatus, string> = {
 };
 
 const ProjectCard = ({ item }: ProjectCardProps) => {
+  const images = Array.isArray(item.previewImage)
+    ? item.previewImage
+    : item.previewImage
+      ? [item.previewImage]
+      : [];
   return (
     <ScrollReveal direction="up" delay={0}>
       <div className="relative border border-border bg-card/60 overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.12)] group h-full flex flex-col">
@@ -78,7 +90,12 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
               )}
 
               {item.githubUrl ? (
-                <Button asChild variant="outline" size="sm" className="gap-2 cursor-pointer">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="gap-2 cursor-pointer"
+                >
                   <a
                     href={item.githubUrl}
                     target="_blank"
@@ -103,13 +120,30 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
           </div>
 
           {item.featured && (
-            <div className="hidden md:flex w-72 lg:w-96 shrink-0 border-l border-border items-center justify-center bg-background/30 flex-col gap-3">
-              {item.previewImage ? (
-                <img
-                  src={item.previewImage}
-                  alt={`${item.name} preview`}
-                  className="w-full h-full object-cover object-top"
-                />
+            <div className="hidden md:flex w-72 lg:w-96 shrink-0 border-l border-border items-center justify-center bg-background/30 relative">
+              {images.length > 0 ? (
+                <Carousel className="w-full h-full">
+                  <CarouselContent>
+                    {images.map((image, idx) => (
+                      <CarouselItem
+                        key={idx}
+                        className="flex items-center justify-center"
+                      >
+                        <img
+                          src={image}
+                          alt={`${item.name} preview ${idx + 1}`}
+                          className="w-full h-full object-contain object-center p-4"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {images.length > 1 && (
+                    <>
+                      <CarouselPrevious className="bg-background/80 hover:bg-primary border-0" />
+                      <CarouselNext className="bg-background/80 hover:bg-primary border-0" />
+                    </>
+                  )}
+                </Carousel>
               ) : (
                 <>
                   <div className="w-16 h-16 border border-border flex items-center justify-center">

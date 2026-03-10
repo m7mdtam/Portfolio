@@ -3,7 +3,7 @@ import { ProjectCard } from ".";
 import type { ProjectsProps } from "@/types/projects.types";
 
 const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
-  const featured = items.find((p) => p.featured);
+  const featured = items.filter((p) => p.featured);
   const rest = items.filter((p) => !p.featured);
 
   return (
@@ -30,7 +30,13 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
         </ScrollReveal>
 
         <div className="flex flex-col gap-6">
-          {featured && <ProjectCard item={featured} index={0} />}
+          {featured.length > 0 && (
+            <div className="grid grid-cols-1 gap-6">
+              {featured.map((item, i) => (
+                <ProjectCard key={item.name} item={item} index={i} />
+              ))}
+            </div>
+          )}
 
           {rest.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -38,7 +44,7 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
                 <ProjectCard
                   key={item.name}
                   item={item}
-                  index={i + (featured ? 1 : 0)}
+                  index={i + featured.length}
                 />
               ))}
             </div>

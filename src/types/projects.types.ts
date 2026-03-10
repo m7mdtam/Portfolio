@@ -11,7 +11,7 @@ export interface ProjectItem {
   role: string;
   tech: string[];
   featured?: boolean;
-  previewImage?: string;
+  previewImage?: string | string[];
 }
 
 export interface ProjectsData {
