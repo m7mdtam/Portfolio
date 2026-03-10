@@ -5,6 +5,7 @@ import {
   FaFacebook,
   FaXTwitter,
 } from "react-icons/fa6";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import type { HeroActionsProps, SocialPlatform } from "@/types/hero.types";
@@ -19,6 +20,12 @@ const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
 };
 
 const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
+  const handleDownloadCV = () => {
+    const cvUrl =
+      "https://drive.google.com/uc?export=download&id=1WEAx9ZTBtPfadxTLbxgMPfJWa8qnLckH";
+    window.open(cvUrl, "_blank");
+  };
+
   return (
     <ScrollReveal delay={0.6}>
       <div className="flex flex-col items-center gap-5 md:items-start">
@@ -34,6 +41,15 @@ const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
               {item.label}
             </Button>
           ))}
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleDownloadCV}
+            className="min-w-36 cursor-pointer flex items-center gap-2"
+          >
+            <Download size={18} />
+            CV
+          </Button>
         </div>
 
         <div className="flex items-center gap-5">
