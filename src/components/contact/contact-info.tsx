@@ -1,4 +1,3 @@
-import { ScrollReveal } from "@/components/react-bits";
 import type { ContactInfoProps } from "@/types/contact.types";
 import { ContactInfoCard } from ".";
 import {
@@ -23,15 +22,11 @@ const socialIconMap: Record<
 
 const ContactInfo = ({ intro, infoItems, socialLinks }: ContactInfoProps) => (
   <div className="flex flex-col">
-    <ScrollReveal>
-      <p className="text-body text-text-secondary mb-6 max-w-md">{intro}</p>
-    </ScrollReveal>
+    <p className="text-body text-text-secondary mb-6 max-w-md">{intro}</p>
 
     <div className="flex flex-col gap-4">
       {infoItems.map((item) => (
-        <ScrollReveal key={item.label} delay={0} direction="up">
-          <ContactInfoCard item={item} />
-        </ScrollReveal>
+        <ContactInfoCard key={item.label} item={item} />
       ))}
     </div>
 
@@ -39,17 +34,16 @@ const ContactInfo = ({ intro, infoItems, socialLinks }: ContactInfoProps) => (
       {socialLinks.map((link) => {
         const Icon = socialIconMap[link.icon as keyof typeof socialIconMap];
         return (
-          <ScrollReveal key={link.href} delay={0} direction="up">
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="w-10 h-10 flex items-center justify-center border border-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground"
-            >
-              <Icon size={20} />
-            </a>
-          </ScrollReveal>
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+            className="w-10 h-10 flex items-center justify-center border border-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground"
+          >
+            <Icon size={20} />
+          </a>
         );
       })}
     </div>

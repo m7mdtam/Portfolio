@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ScrollReveal } from "@/components/react-bits";
 import type { ContactFormProps } from "@/types/contact.types";
 import { toast } from "sonner";
 
@@ -62,72 +61,70 @@ const ContactForm = ({ labels }: ContactFormProps) => {
   };
 
   return (
-    <ScrollReveal>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-        <div className="flex flex-col">
-          <label className="text-xs font-bold text-foreground mb-1">
-            {labels.nameLabel}
-          </label>
-          <input
-            {...register("name")}
-            placeholder={labels.namePlaceholder}
-            className="w-full bg-background-surface text-foreground p-2 border border-border focus:border-accent focus:outline-none transition-colors duration-200 rounded-none"
-          />
-          {errors.name && (
-            <span className="text-red-500 text-sm mt-1">
-              {errors.name.message}
-            </span>
-          )}
-        </div>
-
-        <div className="flex flex-col">
-          <label className="text-xs font-bold text-foreground mb-1">
-            {labels.emailLabel}
-          </label>
-          <input
-            type="email"
-            {...register("email")}
-            placeholder={labels.emailPlaceholder}
-            className="w-full bg-background-surface text-foreground p-2 border border-border focus:border-accent focus:outline-none transition-colors duration-200 rounded-none"
-          />
-          {errors.email && (
-            <span className="text-red-500 text-sm mt-1">
-              {errors.email.message}
-            </span>
-          )}
-        </div>
-
-        <div className="flex flex-col">
-          <label className="text-xs font-bold text-foreground mb-1">
-            {labels.messageLabel}
-          </label>
-          <textarea
-            rows={5}
-            {...register("message")}
-            placeholder={labels.messagePlaceholder}
-            className="w-full bg-background-surface text-foreground p-2 border border-border focus:border-accent focus:outline-none transition-colors duration-200 rounded-none"
-          />
-          {errors.message && (
-            <span className="text-red-500 text-sm mt-1">
-              {errors.message.message}
-            </span>
-          )}
-        </div>
-
-        {submitError && (
-          <div className="text-red-500 text-sm">{labels.errorMessage}</div>
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+      <div className="flex flex-col">
+        <label className="text-xs font-bold text-foreground mb-1">
+          {labels.nameLabel}
+        </label>
+        <input
+          {...register("name")}
+          placeholder={labels.namePlaceholder}
+          className="w-full bg-background-surface text-foreground p-2 border border-border focus:border-accent focus:outline-none transition-colors duration-200 rounded-none"
+        />
+        {errors.name && (
+          <span className="text-red-500 text-sm mt-1">
+            {errors.name.message}
+          </span>
         )}
+      </div>
 
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full cursor-pointer rounded-none hover:brightness-110 h-auto py-3"
-        >
-          {isSubmitting && <Loader className="size-5 animate-spin" />}
-          {isSubmitting ? labels.sendingLabel : labels.submitLabel}
-        </Button>
-      </form>
-    </ScrollReveal>
+      <div className="flex flex-col">
+        <label className="text-xs font-bold text-foreground mb-1">
+          {labels.emailLabel}
+        </label>
+        <input
+          type="email"
+          {...register("email")}
+          placeholder={labels.emailPlaceholder}
+          className="w-full bg-background-surface text-foreground p-2 border border-border focus:border-accent focus:outline-none transition-colors duration-200 rounded-none"
+        />
+        {errors.email && (
+          <span className="text-red-500 text-sm mt-1">
+            {errors.email.message}
+          </span>
+        )}
+      </div>
+
+      <div className="flex flex-col">
+        <label className="text-xs font-bold text-foreground mb-1">
+          {labels.messageLabel}
+        </label>
+        <textarea
+          rows={5}
+          {...register("message")}
+          placeholder={labels.messagePlaceholder}
+          className="w-full bg-background-surface text-foreground p-2 border border-border focus:border-accent focus:outline-none transition-colors duration-200 rounded-none"
+        />
+        {errors.message && (
+          <span className="text-red-500 text-sm mt-1">
+            {errors.message.message}
+          </span>
+        )}
+      </div>
+
+      {submitError && (
+        <div className="text-red-500 text-sm">{labels.errorMessage}</div>
+      )}
+
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full cursor-pointer rounded-none hover:brightness-110 h-auto py-3"
+      >
+        {isSubmitting && <Loader className="size-5 animate-spin" />}
+        {isSubmitting ? labels.sendingLabel : labels.submitLabel}
+      </Button>
+    </form>
   );
 };
 

@@ -1,6 +1,7 @@
 import type { ProjectsData } from "@/types/projects.types";
-import devboardPreview from "@/assets/images/devboard_preview_column.png";
-import shelfiePreview from "@/assets/images/22.png";
+import devboardPreview from "@/assets/images/d1.png";
+import shelfiePreview from "@/assets/images/s11.png";
+import portfolioPreview from "@/assets/images/as.png";
 
 export const projectsData: ProjectsData = {
   tag: "What I've built",
@@ -73,6 +74,25 @@ export const projectsData: ProjectsData = {
       ],
       featured: true,
       previewImage: devboardPreview,
+    },
+    {
+      name: "Portfolio",
+      type: "Personal Website",
+      status: "In Production",
+      liveUrl: "https://mohammed-tamimi.vercel.app/",
+      githubUrl: "https://github.com/m7mdtam/myPortfolio",
+      description:
+        "Personal portfolio showcasing projects, skills, and experience. Built with a focus on performance, clean design, and smooth animations.",
+      role: "Built solo end-to-end — designed the UI/UX, developed the full frontend, and handled deployment to production.",
+      tech: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Motion",
+        "Vite",
+      ],
+      featured: false,
+      previewImage: portfolioPreview,
     },
   ],
 };

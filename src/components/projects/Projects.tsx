@@ -1,4 +1,4 @@
-import { ScrollReveal } from "@/components/react-bits";
+import { BlurFade } from "@/components/react-bits";
 import { ProjectCard } from ".";
 import type { ProjectsProps } from "@/types/projects.types";
 
@@ -11,7 +11,7 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
       <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-20 lg:right-20 h-px bg-border" />
 
       <div className="max-w-5xl mx-auto flex flex-col gap-14">
-        <ScrollReveal>
+        <BlurFade delay={0}>
           <div className="flex flex-col gap-4">
             <span className="text-sm font-title uppercase tracking-widest text-primary">
               {tag}
@@ -27,25 +27,28 @@ const Projects = ({ tag, title, subtitle, items }: ProjectsProps) => {
               {subtitle}
             </p>
           </div>
-        </ScrollReveal>
+        </BlurFade>
 
         <div className="flex flex-col gap-6">
           {featured.length > 0 && (
             <div className="grid grid-cols-1 gap-6">
               {featured.map((item, i) => (
-                <ProjectCard key={item.name} item={item} index={i} />
+                <BlurFade key={item.name} delay={i * 0.1} className="h-full">
+                  <ProjectCard item={item} index={i} />
+                </BlurFade>
               ))}
             </div>
           )}
 
           {rest.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className={`grid gap-6 ${rest.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"}`}>
               {rest.map((item, i) => (
-                <ProjectCard
-                  key={item.name}
-                  item={item}
-                  index={i + featured.length}
-                />
+                <BlurFade key={item.name} delay={i * 0.1} className="h-full">
+                  <ProjectCard
+                    item={item}
+                    index={i + featured.length}
+                  />
+                </BlurFade>
               ))}
             </div>
           )}

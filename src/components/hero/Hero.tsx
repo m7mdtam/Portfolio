@@ -24,7 +24,7 @@ const Hero = ({ data }: HeroProps) => {
         </div>
 
         <ScrollReveal delay={0.2} direction="up" className="shrink-0">
-          <div className="w-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-2 border-primary">
+          <div className="w-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 overflow-hidden border-2 border-primary rounded-2xl">
             <img
               src={data.photo}
               alt={data.name}

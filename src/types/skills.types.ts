@@ -11,13 +11,11 @@ export interface SkillsData {
 
 export interface SkillCardProps {
   name: string;
-  delay?: number;
 }
 
 export interface SkillCategoryProps {
   label: string;
   skills: string[];
-  categoryDelay?: number;
 }
 
 export type SkillsProps = SkillsData;

@@ -4,7 +4,10 @@ import { ClaudeIcon } from "./claude-icon";
 import {
   SiTypescript,
   SiJavascript,
+  SiNextdotjs,
   SiTailwindcss,
+  SiVercel,
+  SiRailway,
   SiVite,
   SiEslint,
   SiPrettier,
@@ -48,6 +51,7 @@ import {
 
 export const skillIcons: Record<string, IconType> = {
   "React.js": FaReact,
+  "Next.js": SiNextdotjs,
   TypeScript: SiTypescript,
   "JavaScript (ES6+)": SiJavascript,
   HTML5: FaHtml5,
@@ -89,6 +93,8 @@ export const skillIcons: Record<string, IconType> = {
   "Error handling": TbAlertTriangle,
 
   "Git & GitHub": FaGit,
+  Vercel: SiVercel,
+  Railway: SiRailway,
   Husky: TbGitBranch,
   ESLint: SiEslint,
   Prettier: SiPrettier,

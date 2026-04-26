@@ -1,4 +1,5 @@
 export { default as BlurText } from "./BlurText";
+export { BlurFade } from "./BlurFade";
 export { default as CardNav } from "./CardNav";
 export { default as ScrollReveal } from "./ScrollReveal";
 export { default as SpotlightCard } from "./SpotlightCard";

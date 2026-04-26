@@ -18,9 +18,11 @@ const HeroContent = ({ name, title, subtitle, intro }: HeroContentProps) => (
         <p className="text-body font-title text-text-secondary tracking-wide">
           {subtitle}
         </p>
-        <p className="text-body text-text-secondary max-w-lg leading-relaxed">
-          {intro}
-        </p>
+        {intro && (
+          <p className="text-body text-text-secondary max-w-lg leading-relaxed">
+            {intro}
+          </p>
+        )}
       </div>
     </ScrollReveal>
   </div>

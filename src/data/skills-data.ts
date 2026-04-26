@@ -8,6 +8,7 @@ export const skillsData: SkillsData = {
       label: "Core",
       skills: [
         "React.js",
+        "Next.js",
         "TypeScript",
         "JavaScript (ES6+)",
         "HTML5",
@@ -64,6 +65,8 @@ export const skillsData: SkillsData = {
         "Vite",
         "pnpm",
         "Bun",
+        "Vercel",
+        "Railway",
       ],
     },
     {

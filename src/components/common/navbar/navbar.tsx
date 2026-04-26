@@ -17,7 +17,7 @@ const NAV_LABELS = ["About", "Skills", "Experience", "Projects", "Contact"];
 
 const pill = "bg-card/80 border border-text-secondary/20 backdrop-blur-md";
 
-const LogoSvg = () => (
+const LogoSvg = ({ id }: { id: string }) => (
   <svg
     className="size-10"
     viewBox="0 0 212 143"
@@ -26,19 +26,19 @@ const LogoSvg = () => (
   >
     <path
       d="M65.5004 129.6L47.4004 111.4L144.8 14.1001L162.9 32.2001L65.5004 129.6Z"
-      fill="url(#nav-g0)"
+      fill={`url(#${id}-g0)`}
     />
     <path
       d="M71.1 18.1L18.1 71.1L0.0999908 53L53.1 0L71.1 18.1ZM53 142.1L71.1 124L18.1 71L0 89.1L53 142.1Z"
-      fill="url(#nav-g1)"
+      fill={`url(#${id}-g1)`}
     />
     <path
       d="M211.7 53L193.6 71.1L140.6 18.1L158.7 0L211.7 53ZM211.7 89.2L193.6 71.1L140.6 124.1L158.7 142.2L211.7 89.2Z"
-      fill="url(#nav-g2)"
+      fill={`url(#${id}-g2)`}
     />
     <defs>
       <linearGradient
-        id="nav-g0"
+        id={`${id}-g0`}
         x1="105.15"
         y1="14.1001"
         x2="105.15"
@@ -49,18 +49,18 @@ const LogoSvg = () => (
         <stop offset="1" stopColor="#1381FF" />
       </linearGradient>
       <linearGradient
-        id="nav-g1"
+        id={`${id}-g1`}
         x1="0.0611"
         y1="71.0764"
         x2="71.1204"
         y2="71.0764"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#022526" />
+        <stop stopColor="#13E4E8" />
         <stop offset="1" stopColor="#1381FF" />
       </linearGradient>
       <linearGradient
-        id="nav-g2"
+        id={`${id}-g2`}
         x1="140.661"
         y1="71.1264"
         x2="211.72"
@@ -159,7 +159,7 @@ const Navbar = () => {
         aria-label="Go to top"
         className={`hidden md:flex w-14 h-14 cursor-pointer rounded-full p-0 hover:bg-transparent ${pill}`}
       >
-        <LogoSvg />
+        <LogoSvg id="nav-desktop" />
       </Button>
 
       <div
@@ -196,7 +196,7 @@ const Navbar = () => {
           aria-label="Go to top"
           className="p-0 hover:bg-transparent size-10 rounded-full shrink-0"
         >
-          <LogoSvg />
+          <LogoSvg id="nav-mobile" />
         </Button>
 
         <div className="flex items-center gap-1">

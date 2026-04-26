@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import type { HeroActionsProps, SocialPlatform } from "@/types/hero.types";
 import type { ComponentType } from "react";
+import cvFile from "@/assets/images/Mohammed_Tamimi_CV (1).pdf";
 
 const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
   github: FaGithub,
@@ -21,15 +22,16 @@ const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
 
 const HeroActions = ({ cta, socials, onCtaClick }: HeroActionsProps) => {
   const handleDownloadCV = () => {
-    const cvUrl =
-      "https://drive.google.com/uc?export=download&id=1WEAx9ZTBtPfadxTLbxgMPfJWa8qnLckH";
-    window.open(cvUrl, "_blank");
+    const a = document.createElement("a");
+    a.href = cvFile;
+    a.download = "Mohammed_Tamimi_CV.pdf";
+    a.click();
   };
 
   return (
     <ScrollReveal delay={0.6}>
       <div className="flex flex-col items-center gap-5 md:items-start">
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 md:flex-col md:gap-3 lg:flex-row lg:gap-4">
           {cta.map((item) => (
             <Button
               key={item.label}

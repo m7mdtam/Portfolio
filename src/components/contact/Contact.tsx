@@ -1,4 +1,4 @@
-import { ScrollReveal } from "@/components/react-bits";
+import { BlurFade } from "@/components/react-bits";
 import type { ContactProps } from "@/types/contact.types";
 import { ContactInfo, ContactForm } from ".";
 
@@ -13,7 +13,7 @@ const Contact = ({
   <section className="relative w-full py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
     <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-20 lg:right-20 h-px bg-border" />
     <div className="max-w-5xl mx-auto flex flex-col gap-14">
-      <ScrollReveal>
+      <BlurFade delay={0}>
         <div className="flex flex-col gap-4 max-w-3xl">
           <span className="text-sm font-mono uppercase tracking-widest text-primary">
             {tag}
@@ -23,20 +23,20 @@ const Contact = ({
           </h2>
           <div className="w-10 h-1 bg-primary" />
         </div>
-      </ScrollReveal>
+      </BlurFade>
 
       <div className="flex flex-col md:flex-row gap-10">
-        <ScrollReveal direction="left" className="md:w-1/2">
+        <BlurFade delay={0.1} className="md:w-1/2">
           <ContactInfo
             intro={intro}
             infoItems={infoItems}
             socialLinks={socialLinks}
           />
-        </ScrollReveal>
+        </BlurFade>
 
-        <ScrollReveal direction="right" className="md:w-1/2">
+        <BlurFade delay={0.2} className="md:w-1/2">
           <ContactForm labels={form} />
-        </ScrollReveal>
+        </BlurFade>
       </div>
     </div>
   </section>

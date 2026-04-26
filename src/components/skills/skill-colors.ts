@@ -42,6 +42,7 @@ export const skillColors: Record<string, string> = {
   "Error handling": "#d63031", // Red
 
   "Git & GitHub": "#f05033", // GitHub Orange
+  Railway: "#7C3AED", // Railway Purple
   Husky: "#ff1493", // Deep Pink
   ESLint: "#4b32c3", // ESLint Purple
   Prettier: "#f7b93d", // Prettier Yellow

@@ -1,4 +1,4 @@
-import { ScrollReveal } from "@/components/react-bits";
+import { BlurFade } from "@/components/react-bits";
 import { ExperienceTimeline } from ".";
 import type { ExperienceProps } from "@/types/experience.types";
 
@@ -7,7 +7,7 @@ const Experience = ({ tag, title, items }: ExperienceProps) => (
     <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-20 lg:right-20 h-px bg-border" />
 
     <div className="max-w-5xl mx-auto flex flex-col gap-14">
-      <ScrollReveal>
+      <BlurFade delay={0}>
         <div className="flex flex-col gap-4">
           <span className="text-sm font-title uppercase tracking-widest text-primary">
             {tag}
@@ -20,7 +20,7 @@ const Experience = ({ tag, title, items }: ExperienceProps) => (
           </div>
           <div className="w-10 h-1 bg-primary" />
         </div>
-      </ScrollReveal>
+      </BlurFade>
 
       <ExperienceTimeline items={items} />
     </div>
