@@ -1,7 +1,7 @@
 import type { ExperienceCardProps } from "@/types/experience.types";
 
 const ExperienceCard = ({ item }: ExperienceCardProps) => (
-  <div className="relative border border-border bg-card/60 p-6 overflow-hidden transition-all duration-200 hover:bg-card hover:shadow-lg">
+  <div className="relative border border-border bg-card/60 p-6 transition-all duration-200 hover:bg-card hover:shadow-lg">
     <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary" />
 
     <h3 className="text-h4 font-title font-bold text-foreground leading-tight mb-2">

@@ -1,4 +1,5 @@
-import { ExternalLink, Lock, Github } from "lucide-react";
+import { ExternalLink, Lock } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import ProjectTag from "./project-tag";
 import type { ProjectCardProps, ProjectStatus } from "@/types/projects.types";
@@ -16,7 +17,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
     ? item.previewImage[0]
     : item.previewImage;
   return (
-    <div className="relative border border-border bg-card/60 overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.12)] group h-full flex flex-col">
+    <div className="relative border border-border bg-card/60 transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.12)] group h-full flex flex-col">
       <div className="h-0.5 w-full bg-primary transition-all duration-300 group-hover:h-1" />
 
       <div className="w-full h-64 sm:h-72 md:h-80 border-b border-border bg-background/30 relative overflow-hidden">
@@ -106,7 +107,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github className="size-3.5" />
+                <FaGithub className="size-3.5" />
                 GitHub
               </a>
             </Button>
