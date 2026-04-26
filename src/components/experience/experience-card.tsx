@@ -47,7 +47,7 @@ const ExperienceCard = ({ item }: ExperienceCardProps) => (
           className="flex gap-2.5 text-sm text-text-secondary leading-relaxed"
         >
           <span className="text-primary mt-0.5 shrink-0 text-xs">▸</span>
-          <span>{r}</span>
+          <span className="text-text-secondary">{r}</span>
         </li>
       ))}
     </ul>
