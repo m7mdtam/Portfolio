@@ -8,7 +8,6 @@ interface BlurFadeProps {
   delay?: number;
   duration?: number;
   yOffset?: number;
-  blur?: string;
 }
 
 export function BlurFade({
@@ -18,7 +17,6 @@ export function BlurFade({
   delay = 0,
   duration = 0.5,
   yOffset = 8,
-  blur = "8px",
 }: BlurFadeProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -28,8 +26,8 @@ export function BlurFade({
       ref={ref}
       className={className}
       style={style}
-      initial={{ opacity: 0, y: yOffset, filter: `blur(${blur})` }}
-      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+      initial={{ opacity: 0, y: yOffset }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}
