@@ -7,37 +7,16 @@ import type { ProjectCardProps, ProjectStatus } from "@/types/projects.types";
 const statusStyles: Record<ProjectStatus, string> = {
   "In Production":
     "border-status-success bg-status-success-bg text-status-success",
+  MVP: "border-primary bg-accent text-primary",
   "In Progress":
     "border-status-warning bg-status-warning-bg text-status-warning",
   Completed: "border-border bg-card text-text-secondary",
 };
 
 const ProjectCard = ({ item }: ProjectCardProps) => {
-  const image = Array.isArray(item.previewImage)
-    ? item.previewImage[0]
-    : item.previewImage;
   return (
     <div className="relative border border-border bg-card/60 transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.12)] group h-full flex flex-col">
       <div className="h-0.5 w-full bg-primary transition-all duration-300 group-hover:h-1" />
-
-      <div className="w-full h-64 sm:h-72 md:h-80 border-b border-border bg-background/30 relative overflow-hidden">
-        {image ? (
-          <img
-            src={image}
-            alt={`${item.name} preview`}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="flex flex-col items-center justify-center w-full h-full gap-2">
-            <div className="w-16 h-16 border border-border flex items-center justify-center">
-              <div className="w-8 h-8 border border-primary/40 bg-accent" />
-            </div>
-            <span className="text-xs text-text-muted uppercase tracking-widest">
-              Preview
-            </span>
-          </div>
-        )}
-      </div>
 
       <div className="flex flex-col flex-1 p-6 gap-5">
         <div className="flex items-start justify-between gap-3">

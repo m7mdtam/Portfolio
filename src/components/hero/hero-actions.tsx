@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/react-bits";
 import type { HeroActionsProps, SocialPlatform } from "@/types/hero.types";
 import type { ComponentType } from "react";
-import cvFile from "@/assets/images/Mohammed_Tamimi_CV (1).pdf";
+import cvFile from "@/assets/Mohammed_Tamimi_CV.pdf";
 
 const socialIcons: Record<SocialPlatform, ComponentType<{ size?: number }>> = {
   github: FaGithub,

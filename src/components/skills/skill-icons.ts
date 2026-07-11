@@ -22,6 +22,8 @@ import {
   SiReact,
   SiAirtable,
   SiFormik,
+  SiNodedotjs,
+  SiPostgresql,
 } from "react-icons/si";
 import {
   TbRoute,
@@ -47,6 +49,8 @@ import {
   TbWorld,
   TbMail,
   TbShieldCheck,
+  TbServerBolt,
+  TbBuildingWarehouse,
 } from "react-icons/tb";
 
 export const skillIcons: Record<string, IconType> = {
@@ -82,6 +86,11 @@ export const skillIcons: Record<string, IconType> = {
   "React Native": SiReact,
   NativeWind: SiTailwindcss,
   "Reusable React Native": TbComponents,
+
+  "Node.js": SiNodedotjs,
+  Elysia: TbServerBolt,
+  PostgreSQL: SiPostgresql,
+  ERP: TbBuildingWarehouse,
 
   "Payload CMS": SiPayloadcms,
   "Neon DB (PostgreSQL)": TbDatabase,

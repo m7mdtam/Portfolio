@@ -32,6 +32,11 @@ export const skillColors: Record<string, string> = {
   NativeWind: "#06b6d4", // Tailwind Cyan
   "Reusable React Native": "#61dafb", // React Blue
 
+  "Node.js": "#339933", // Node Green
+  Elysia: "#c084fc", // Elysia Purple
+  PostgreSQL: "#336791", // PostgreSQL Blue
+  ERP: "#3b82f6", // Generic ERP Blue
+
   "Payload CMS": "#1a73e8", // Payload Blue
   "Neon DB (PostgreSQL)": "#336791", // PostgreSQL Blue
   MongoDB: "#13aa52", // MongoDB Green

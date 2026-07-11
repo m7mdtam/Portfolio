@@ -66,7 +66,7 @@ export const contactData: ContactData = {
     retryLabel: "Retry",
   },
   footer: {
-    copyright: "© 2025 Mohammed Tamimi. All rights reserved.",
+    copyright: `© ${new Date().getFullYear()} Mohammed Tamimi. All rights reserved.`,
     links: [
       {
         icon: "github",

@@ -1,4 +1,8 @@
-export type ProjectStatus = "In Production" | "In Progress" | "Completed";
+export type ProjectStatus =
+  | "In Production"
+  | "MVP"
+  | "In Progress"
+  | "Completed";
 
 export interface ProjectItem {
   name: string;
@@ -11,7 +15,6 @@ export interface ProjectItem {
   role: string;
   tech: string[];
   featured?: boolean;
-  previewImage?: string | string[];
 }
 
 export interface ProjectsData {

@@ -1,25 +1,24 @@
 import type { ExperienceData } from "@/types/experience.types";
+import { formatDuration } from "@/lib/utils";
 
 export const experienceData: ExperienceData = {
   tag: "Where I've worked",
   title: "Experience",
   items: [
     {
-      title: "Full Stack Engineer",
+      title: "Forward Deployed Engineer",
       company: "IzTechValley",
-      companyUrl: "https://iztechvalley.ps",
+      companyUrl: "https://iztechvalley.com",
       location: "Hebron, West Bank, Palestine",
       type: "Full-Time",
       period: "Jul 2025 – Present",
-      duration: "9 months",
+      duration: formatDuration("2025-07"),
       responsibilities: [
-        "Building and maintaining responsive UIs for BARAKA POS, a live SaaS platform for Palestinian businesses",
-        "Integrating RESTful APIs with TanStack Query, routing with TanStack Router, data grids with TanStack Table",
-        "Building full web applications with animated UIs for local companies using React Bits and Motion",
-        "Managing forms with Zod + React Hook Form, global state with Zustand",
-        "Handling internationalization with react-i18next (i18n)",
-        "Maintaining code quality with Git, Husky, ESLint, Prettier, Commitlint",
-        "Exploring Payload CMS for full-stack backend integration",
+        "Independently built and shipped iztechvalley.com end-to-end — the company's marketing website — owning architecture, UI, launch, and ongoing SEO and performance",
+        "Solely designed and delivered petromall.iztech.net end-to-end, a multi-section product catalog and landing platform, from first commit to production",
+        "Single-handedly built and shipped naab-app.com end-to-end, including the performance and reliability work behind a smooth experience across mobile and desktop",
+        "Built the Barakat admin panel end-to-end — the operations dashboard for a live POS SaaS platform used by Palestinian businesses",
+        "Owned each project alone from first commit to live deployment, working directly with stakeholders on scope and delivery",
       ],
     },
     {

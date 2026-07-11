@@ -3,8 +3,9 @@ import photo from "@/assets/images/my2.jpg";
 
 export const heroData: HeroData = {
   name: "Mohammed Tamimi",
-  title: "Full Stack Engineer",
-  subtitle: "",
+  title: "Forward Deployed Engineer",
+  subtitle:
+    "I build software end to end and connect it to the systems a business already runs on.",
   intro: "",
   photo,
   cta: [
